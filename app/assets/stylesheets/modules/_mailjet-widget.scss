@@ -1,0 +1,83 @@
+#mailjet-widget {
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+  color: $widgetText;
+  font-size: 2.5em;
+  text-shadow: 0 0 13px rgba(0,0,0,.7);
+
+  padding-top: 1.5em;
+
+  @media screen and (min-width: 550px) {
+    font-size: 2em;
+  }
+
+  .widget-label, input {
+    margin-bottom: .25em;
+  }
+
+  button {
+    background: none;
+    border: .1em solid $widgetText;
+    border-radius: .2em;
+    font-family: 'Muli', sans-serif;
+    color: $widgetText;
+    font-size: 1em;
+    transition: background-color 0.5s ease;
+    box-shadow: 0 0 13px rgba(0,0,0,.4);
+    text-shadow: 0 0 13px rgba(0,0,0,.7);
+
+    &:hover {
+      background: $fadedDeep;
+      transition: background-color 0.5s ease;
+    }
+  }
+
+  input {
+    background: none;
+    border: none;
+    border-bottom: .1em solid $widgetText;
+    font-family: 'Muli', sans-serif;
+    color: $widgetText;
+    font-size: .65em;
+    padding-left: .2em;
+    width: 70%;
+    box-shadow: 0 8px 6px -6px rgba(0,0,0,.2);
+  }
+
+  ::-webkit-input-placeholder {
+   color: $widgetPlaceholder;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+     color: $widgetPlaceholder;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: $widgetPlaceholder;
+  }
+
+  :-ms-input-placeholder {
+     color: $widgetPlaceholder;
+  }
+}
+
+.mailjet-widget-loader {
+  display: none;
+  width: 2%;
+  padding: 0;
+  animation: none;
+}
+
+.mailjet-widget-status {
+  font-family: 'Muli', sans-serif;
+  font-size: 2em;
+  padding-top: .5em;
+
+  &.error {
+    color: $alert;
+  }
+
+  &.success {
+    color: green;
+  }
+}

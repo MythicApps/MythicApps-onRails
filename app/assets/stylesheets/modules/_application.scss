@@ -1,0 +1,122 @@
+#application {
+  //display: none;
+  background-color: $applicationBackground;
+  color: $applicationText;
+  font-family: "Muli";
+}
+
+#application-form {
+  max-width: 1200px;
+  margin: auto;
+  @media screen and (min-width: 550px){
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.crystals-top, .crystals-bottom {
+  @media screen and (min-width: 550px){
+    display: none;
+  }
+}
+.crystals-top {
+  margin-top: -1px;
+}
+
+.crystals-bottom {
+  transform: scaleY(-1);
+}
+
+.mobile-application-header {
+  max-width: 1200px;
+  margin-left: 2em;
+  @media screen and (min-width: 550px){
+    margin: auto;
+  }
+  margin-bottom: 2em;
+}
+
+.mobile-application-logo {
+  display: inline-block;
+  width: 15%;
+}
+
+.mobile-application-header-text {
+  display: inline-block;
+  width: 84%;
+
+  h1 {
+    text-transform: uppercase;
+    font-size: 3em;
+    padding-bottom: .05em;
+    border-bottom: .2em solid $applicationText;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    padding-top: .5em;
+  }
+}
+
+.application-column {
+  margin: 2em;
+
+  @media screen and (min-width: 550px){
+    width: 45%;
+  }
+}
+
+.section-label {
+  text-transform: uppercase;
+  color: $applicationSectionHeader;
+  font-size: 1.5em;
+  padding: .75em 0;
+}
+
+label {
+  font-size: 1.5em;
+}
+
+label, .checkbox-container {
+  margin: .5em 0;
+}
+
+.full-line-label {
+  display: block;
+  text-transform: uppercase;
+}
+
+div.awesomplete {
+  width: 100%;
+}
+
+input[type="text"], input[type="email"] {
+  background: none;
+  border: none;
+
+  border-bottom: .2em solid $applicationText;
+  width: 100%;
+}
+
+#freeResponse {
+  display: block;
+  width: 100%;
+  height: 10em;
+  margin: 1em 0;
+  background-color: $applicationFreeResponseBackground;
+  border: none;
+}
+
+.optional-portfolios {
+  @media screen and (min-width: 550px){
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    div {
+      width: 45%;
+    }
+  }
+
+
+}

@@ -1,0 +1,20 @@
+.media-grid {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .media-item {
+    width: 30%;
+    padding: .5em;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .full {
+    width: 100%;
+    padding: 1em;
+  }
+}

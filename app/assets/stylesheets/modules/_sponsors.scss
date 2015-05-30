@@ -1,0 +1,51 @@
+#sponsors {
+  position: relative;
+  font-family: "Muli";
+  overflow: hidden;
+  padding-bottom: 5em;
+
+  background: #8db17f; /* Old browsers */
+  background: -moz-linear-gradient(top,  #8db17f 0%, #8bd5ed 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8db17f), color-stop(100%,#8bd5ed)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #8db17f 0%,#8bd5ed 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #8db17f 0%,#8bd5ed 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #8db17f 0%,#8bd5ed 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #8db17f 0%,#8bd5ed 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8db17f', endColorstr='#8bd5ed',GradientType=0 ); /* IE6-9 */
+}
+
+.sponsor-header-image {
+  position: absolute;
+  width: 101%;
+  top: -1%;
+  z-index: 1;
+}
+
+.sponsor-header {
+  position: relative;
+  z-index: 5;
+  text-transform: uppercase;
+  text-align: center;
+  color: $sponsorHeader;
+  font-size: 5em;
+  padding-top: 15%;
+}
+
+.sponsor-subheader {
+  position: relative;
+  z-index: 5;
+  text-transform: uppercase;
+  text-align: center;
+  color: $sponsorHeader;
+  font-size: .7em;
+  padding-bottom: 6em;
+
+  a {
+    color: $lemonCreme;
+    text-decoration: none;
+
+    &:visited {
+      color: $lemonCreme;
+    }
+  }
+}

@@ -1,2 +1,365 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<section id="hero">
+  <div class="social-media-desktop">
+    <a href="https://twitter.com/MythicApps">
+      <i class="fa fa-twitter"></i>
+    </a>
+    <a href="https://www.facebook.com/MythicApps">
+      <i class="fa fa-facebook"></i>
+    </a>
+  </div>
+  <div class="hero-wrap wrap">
+    <div id="hero-content" class="center-content">
+      <img class="gem" src="assets/gem-logo.png" />
+      <h1 class="title">MythicApps</h1>
+      <h2 class="subtitle">September 25-27th</h2>
+      <h2 class="subtitle">Lansing, MI</h2>
+      <a id="apply" href="#application" class="button">apply</a>
+      <div class="contacts">
+        <a href="mailto:sponsor@mythicapps.io" class="button button--contact">sponsor</a>
+        <a href="mailto:hello@mythicapps.io" class="button button--contact">contact</a>
+      </div>
+    </div>
+    <div class="social-media-mobile">
+      <a href="https://twitter.com/MythicApps">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="https://www.facebook.com/MythicApps">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </div>
+  </div>
+
+  <div id="hero-background">
+    <img class="full-width align-top" src="assets/all-fishies.svg" />
+    <img class="full-width align-bottom arch" src="assets/arch.svg" />
+    <img class="full-width align-bottom" src="assets/whale-rock.svg" />
+    <img class="full-width align-bottom" src="assets/back-rock.svg" />
+    <img class="full-width align-bottom capitol" src="assets/capitol.svg" />
+    <img class="full-width align-bottom close-gap" src="assets/front-reef.svg" />
+  </div>
+</section>
+
+<div id="header" class="header">
+  <nav id="nav">
+    <ul class="nav navbar-nav">
+      <li class="center-content">
+        <img class="nav-decoration" src="assets/nav-seashell.svg">
+      </li>
+      <li>
+        <a href="#about" class="button">about</a>
+      </li>
+      <li>
+        <a href="#faq" class="button">faq</a>
+      </li>
+      <li>
+        <a href="#sponsors" class="button">sponsors</a>
+      </li>
+      <li class="center-content">
+        <img class="nav-decoration" src="assets/nav-seashell.svg">
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<section id="application" class="scrollto">
+  <img class="crystals-top" src="assets/sponsor-cave.svg">
+
+  <div class="mobile-application-header">
+    <img class="mobile-application-logo" src="assets/gem-logo.png">
+    <div class="mobile-application-header-text">
+      <h1>Application</h1>
+      <h2>Due August 10, 2015</h2>
+    </div>
+  </div>
+
+  <form id="application-form">
+    <div class="left-column application-column">
+
+      <h3 class="section-label">Personal</h3>
+
+      <label class="full-line-label" for="name">Name</label>
+      <input id="name" type="text" name="name"/>
+
+      <label class="full-line-label" for="email">Email</label>
+      <input id="email" type="email" name="email" required/>
+
+      <label class="full-line-label" for="genderId">Gender Identity</label>
+      <input class="awesomplete" id="genderId" type="text" name="genderId" list="genderList" required/>
+      <datalist id="genderList">
+      	<option>Female</option>
+      	<option>Male</option>
+      	<option>Non-binary</option>
+      	<option>Prefer not to answer</option>
+      </datalist>
+
+
+      <label class="full-line-label" for="schoolName">School Name</label>
+      <input class="awesomplete" id="schoolName" type="text" name="schoolName" list="schoolList" required/>
+      <datalist id="schoolList">
+        <option>Michigan State University</option>
+        <option>Saline High School</option>
+        <option>Clown Academy for Gifted Jokesters</option>
+      </datalist>
+
+      <div class="checkbox-container">
+        <input id="isFirstHackathon" type="checkbox" name="isFirstHackathon"/>
+        <label for="isFirstHackathon">This is my first hackathon.</label>
+      </div>
+
+      <div class="checkbox-container">
+        <input id="isNotTravelingFromSchool" type="checkbox" name="isNotTravelingFromSchool" />
+        <label for="isNotTravelingFromSchool">I will not be traveling from my school</label>
+      </div>
+
+      <label class="full-line-label" for="alternativeTravelPoint">I will be traveling from</label>
+      <input id="alternativeTravelPoint" type="text" name="alternativeTravelPoint" />
+
+      <label class="full-line-label" for="resume">Resume</label>
+      <input id="resume" type="filepicker-dragdrop" data-fp-apikey="AYwmlncw3SJyIxVRZuyx2z" data-fp-mimetypes="application/pdf" data-fp-container="modal" onchange="alert(event.fpfile.url)">
+    </div>
+    <div class="right-column application-column">
+
+      <h3 class="section-label">Additional Information (Optional)</h3>
+
+      <div class="optional-portfolios">
+        <div>
+          <label class="full-line-label" for="github">Github</label>
+          <input id="github" type="text" name="github"/>
+        </div>
+
+        <div>
+          <label class="full-line-label" for="dribbble">Dribbble</label>
+          <input id="dribbble" type="text" name="dribbble"/>
+        </div>
+      </div>
+
+      <label class="full-line-label" for="linkedin">Linkedin</label>
+      <input id="linkedin" type="text" name="linkedin"/>
+
+      <label class="full-line-label" for="personalSite">Personal Site</label>
+      <input id="personalSite" type="text" name="personalSite"/>
+
+      <h3 class="section-label free-response-section-label">Free Response (Optional)</h3>
+
+      <label for="freeResponse">
+        Have anything else you' like to share?
+        You can put links, awards, imgur links, or whatever else you'd like here.
+        If there is somthing not reflected in the other informationyou've given us, this is a great place to put it!
+      </label>
+      <textarea id="freeResponse" name="freeResponse"></textarea>
+
+      <button id="save-application">Save</button>
+
+    </div>
+  </form>
+
+  <img class="crystals-bottom" src="assets/sponsor-cave.svg">
+</section>
+
+<section id="about" class="scrollto">
+  <div class="wrap column-container">
+    <div class="content-column">
+      <h2 class="about-header">Believe in the Myth!</h2>
+      <p class="about-body">
+        Come and spend the weekend with the City of Lansing's first hackathon! Hosted at the luxurious Lansing Center, MythicApps will take over the charming downtown of Lansing, Michigan. Weâll provide all the tools necessary for a fun, rewarding, and free weekend in the Capital City.
+      </p>
+
+      <h2 class="about-header">Build Something Legendary!</h2>
+      <p class="about-body">
+        Make friends that will last a lifetime and meet representatives from amazing companies. Chase the dream of building an app that changes the world and learn a brand new skill.   Pick the brains of our mentors and try out some new hardware.
+        MythicApps is the place to take the seasoned veteran, or the eager beginner, to the next level.
+      </p>
+    </div>
+    <div class="graphic-column">
+      <div id="compass-container"></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="scrollto">
+  <div class="wrap">
+    <h1 class="faq-header">FAQ</h1>
+    <div class="faq-nav">
+      <a id="general-button" href="#" class="button button--faq selected">
+        <img src="assets/faq-diamond.svg">
+        General
+        <img class="desktop" src="assets/faq-diamond.svg">
+      </a>
+      <a id="before-button" href="#" class="button button--faq">
+        <img src="assets/faq-diamond.svg">
+        Before
+        <img class="desktop" src="assets/faq-diamond.svg">
+      </a>
+      <a id="during-button" href="#" class="button button--faq">
+        <img src="assets/faq-diamond.svg">
+        During
+        <img class="desktop" src="assets/faq-diamond.svg">
+      </a>
+      <a id="after-button" href="#" class="button button--faq">
+        <img src="assets/faq-diamond.svg">
+        After
+        <img class="desktop" src="assets/faq-diamond.svg">
+      </a>
+    </div>
+    <div class="question-container">
+      <img src="assets/faq-glass.svg" />
+      <article id="general-questions" class="questions selected">
+        <ul>
+          <li>
+            <h2>What is MythicApps</h2>
+            <p>MythicApps is the City of Lansing’s official hackathon.  For 36 hours, 750-1000 designers, developers, and engineers from across the country will converge in Lansing, Michigan for a weekend of innovation and creation of websites, mobile applications, hardware, and more!  Best of all, it’s free!!!</p>
+          </li>
+          <li>
+            <h2>When is MythicApps</h2>
+            <p>MythicApps will take place from Friday September 25, 2015 until Sunday September 27, 2015.  Attendees will arrive around dinner on Friday and the competition will end early afternoon Sunday.</p>
+          </li>
+          <li>
+            <h2>Where is MythicApps</h2>
+            <p>MythicApps will transpire at the Lansing Center, 333 E Michigan Ave in the heart of downtown Lansing, Michigan.</p>
+          </li>
+          <li>
+            <h2>Who can attend MythicApps</h2>
+            <p>MythicApps competitors must be enrolled in school at the time of the competition, whether that be high school, college, graduate school, or clown college.</p>
+          </li>
+        </ul>
+      </article>
+      <article id="before-questions" class="questions">
+        <ul>
+          <li>
+            <h2>How do I apply?</h2>
+            <p>The applications will open on June 1, 2015 and will stay open until August 25.  We will be accepting applicants on a rolling basis starting June 30.</p>
+          </li>
+          <li>
+            <h2>What do I need to bring?</h2>
+            <p>Laptop, student ID, toiletries, chargers, a parental consent form (if you are under 18)...oh and clothes, please wear clothes.</p>
+          </li>
+          <li>
+            <h2>How do I get there?</h2>
+            <p>We will be doing buses to various cities and campuses.  Travel reimbursements are in the cards as well.  More details to come!</p>
+          </li>
+          <li>
+            <h2>Do I need a team?</h2>
+            <p>Absolutely not.  If you are looking to join a team, or looking for team members, we will get you all set up!</p>
+          </li>
+          <li>
+            <h2>Can I start my project beforehand?</h2>
+            <p>Can I start my project beforehand?: No.  You must do all your work at the event.  Pondering your idea before the event is encouraged, but not required.</p>
+          </li>
+        </ul>
+      </article>
+      <article id="during-questions" class="questions">
+        <ul>
+          <li>
+            <h2>I’m hungry, is there food?</h2>
+            <p>Of course, and best of all, it's free!  There will be plenty of meals, snacks, and energy drinks to go around.</p>
+          </li>
+          <li>
+            <h2>I’m tired, where can I sleep?</h2>
+            <p>Sleep rooms will be set up at the venue.  You are also welcome to nap at your table.</p>
+          </li>
+          <li>
+            <h2>I’m confused, who can help me?</h2>
+            <p>We will have plenty of mentors on staff to help you with any technical questions pertaining to your project.</p>
+          </li>
+          <li>
+            <h2>I’m new, do I need to be able to code?</h2>
+            <p>Absolutely not!  Hackathons are a great place to learn new skills from both participants and the aforementioned mentors.</p>
+          </li>
+        </ul>
+      </article>
+      <article id="after-questions" class="questions">
+        <ul>
+          <li>
+            <h2>So, are there prizes?</h2>
+            <p>Of course!  There will be plenty of prizes going around, both from us and our corporate sponsors.</p>
+          </li>
+          <li>
+            <h2>What if I have more questions?</h2>
+            <p>Email us at hello@mythicapps.io</p>
+          </li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="sponsors" class="scrollto">
+  <h1 class="sponsor-header">Sponsors</h1>
+  <h2 class="sponsor-subheader">
+    Interested in sponsoring? Check out our
+    <a href="doc/sponsorship-prospectus.pdf">sponsorship opportunities</a>!
+  </h2>
+
+  <img class="sponsor-header-image" src="assets/sponsor-cave.svg"/>
+
+  <div class="wrap media-grid">
+    <a href="http://www.neocenter.org/" class="media-item center-content partner">
+      <img src="assets/logos/neo-center.png"/>
+    </a>
+    <a href="http://www.purelansing.com/" class="media-item center-content partner">
+      <img src="assets/logos/leap.png"/>
+    </a>
+    <a href="http://www.lcc.edu/" class="media-item center-content partner">
+      <img src="assets/logos/LCC.svg"/>
+    </a>
+    <a href="http://mitn.org/" class="media-item center-content partner">
+      <img src="assets/logos/mitn.png"/>
+    </a>
+    <a href="http://www.spartaninnovations.org/" class="media-item center-content partner">
+      <img src="assets/logos/spartan-innovations.png"/>
+    </a>
+    <a href="http://startuplansing.org/" class="media-item center-content partner">
+      <img src="assets/logos/startup-lansing.png"/>
+    </a>
+    <a href="http://www.capitaltechinitiative.org/" class="media-item center-content partner">
+      <img src="assets/logos/cti.png"/>
+    </a>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    Designed with <i class="fa fa-diamond"></i> by CodeSpice.
+    &copy;2016, Capital Technology Initiative.
+  </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="//cdn.jsdelivr.net/vivus/0.2.1/vivus.min.js"></script>
+<script src="//cdn.jsdelivr.net/stickynavbar.js/1.1.2/jquery.stickyNavbar.min.js"></script>
+<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+
+<script src="assets/jquery.waypoints.min.js"></script>
+
+
+<script>
+  var compassDraw = new Vivus('compass-container', {
+    type: 'async',
+    duration:100,
+    file: 'assets/compass.svg',
+    start: 'manual',
+  });
+
+  $('#compass-container').waypoint(function(direction) {
+    if(direction === "down"){
+      compassDraw.play();
+    };
+  }, {
+    offset: '100%'
+  });
+</script>
+
+<script>
+    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    e.src='https://www.google-analytics.com/analytics.js';
+    r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    ga('create','UA-59904417-1','auto');ga('send','pageview');
+
+    $(function () {
+       $('.header').stickyNavbar();
+    });
+</script>

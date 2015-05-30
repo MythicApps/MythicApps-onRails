@@ -1,0 +1,55 @@
+.button {
+  display: inline-block;
+  background: $button;
+  text-align: center;
+  text-decoration: none;
+  color: $buttonFont;
+  font-family: "Muli";
+  font-size: 2em;
+  padding: .5em;
+  margin: 0 .25em;
+  transition: background-color 0.5s ease;
+
+  &:hover {
+    background: $buttonActive;
+    transition: background-color 0.5s ease;
+  }
+}
+
+.button--contact {
+    background: $contactButton;
+
+    &:hover {
+      background: $contactButtonActive;
+    }
+}
+
+.button--faq {
+  img {
+    height: .6em;
+    opacity: 0;
+    margin: 0 .1em;
+    display: inline-block;
+    transition:opacity .25s linear;
+  }
+
+  &.selected {
+    color: $faqButtonSelected;
+    img {
+      opacity: 1;
+    }
+  }
+}
+
+#apply {
+  font-size: 2em;
+  background-color: $applyButton;
+  width: 70%;
+  border-radius: 1em;
+  padding: .25em;
+  margin: .5em .25em;
+
+  &:hover {
+    background: $applyButtonActive;
+  }
+}

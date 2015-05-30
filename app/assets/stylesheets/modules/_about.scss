@@ -1,0 +1,62 @@
+#about {
+  background: $aboutBackground;
+  font-family: "Muli";
+}
+
+#compass-container {
+  width: 90%;
+}
+
+%column {
+  width: 45%;
+
+  @media screen and (max-width: 600px) {
+    width: 95%;
+    max-width: 250px;
+    margin: auto;
+    font-size: 1.4em;
+  }
+}
+
+.content-column {
+  @extend %column;
+
+  padding-left: 1em;
+
+  @media screen and (max-width: 600px) {
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+.graphic-column {
+  @extend %column;
+  @media screen and (max-width: 600px) {
+    display:none;
+  }
+}
+
+.column-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 3em;
+  padding-bottom: 6em;
+}
+
+#compass-container {
+  margin: auto;
+}
+
+.about-header {
+  color: $aboutHeader;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin: 1em 0;
+}
+
+.about-body {
+  color: $aboutBody;
+  font-size: 1.1em;
+  line-height: 1.2em;
+}

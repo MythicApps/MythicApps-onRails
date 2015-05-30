@@ -1,0 +1,15 @@
+
+
+.tagline {
+  font-family: "yataghan";
+  text-transform: uppercase;
+  font-size: 4em;
+  letter-spacing: .5em;
+  color: $titleText;
+
+  animation: fadein-delayed $fadetime*2;
+}
+
+.vertical {
+  flex-direction: column;
+}

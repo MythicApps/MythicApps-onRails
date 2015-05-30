@@ -1,0 +1,31 @@
+.active {
+    color: $lemonCreme !important;
+    //text-decoration: underline !important;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.navbar-nav {
+  padding-top: -10px;
+  background: $navbar;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  width: 100%;
+}
+
+#partners {
+  background: $glass;
+  height: 60vh;
+}
+
+.nav-decoration {
+  height: 1.5em;
+  margin: 0 .1em;
+  display: inline-block;
+}

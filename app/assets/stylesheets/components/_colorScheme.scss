@@ -1,0 +1,65 @@
+//Semantic Names//
+
+//Blues
+$aqua: #67bbd6;
+$deepBlue: #0b6683;
+$paleBlue: #d8f0fb;
+$fadedDeep: rgba(27,103,132,.6);
+$lightblue: #80dff6;
+$porcelin: #dcf0fb;
+$glass: rgba(220,240,251,.7);
+$softSteel: #5891A3;
+
+//Yellows
+$lemonCreme: #ffdb6d;
+$caramel: #9e7a2d;
+$fadedCaramel: rgba(158,122,45,.6);
+
+//Reds
+$alert: #c0392b;
+
+//Color Assignments//
+
+//Backgrounds
+$mainBackground: $lightblue;
+$applicationBackground: $deepBlue;
+$applicationFreeResponseBackground: $glass;
+$aboutBackground: $deepBlue;
+$faqBackground: $deepBlue;
+$questionMobileBackground: $paleBlue;
+$footerBackground: $deepBlue;
+
+//Fonts
+$titleText: $porcelin;
+
+$applicationText: $lemonCreme;
+$applicationSectionHeader: black;
+
+$aboutHeader: $lemonCreme;
+$aboutBody: $porcelin;
+
+$faqHeader: $lemonCreme;
+$questionHeader: $deepBlue;
+$sponsorHeader: $porcelin;
+
+$highlight: $lemonCreme;
+
+$widgetText: $porcelin;
+$widgetPlaceholder: $glass;
+
+$socialMedia: $deepBlue;
+$socialMediaMobile: $porcelin;
+
+$button: $deepBlue;
+$buttonActive: $softSteel;
+$buttonFont: $porcelin;
+
+$contactButton: $fadedDeep;
+$contactButtonActive: $deepBlue;
+
+$applyButton: $fadedCaramel;
+$applyButtonActive: $caramel;
+
+$faqButtonSelected: $lemonCreme;
+
+$navbar: $deepBlue
