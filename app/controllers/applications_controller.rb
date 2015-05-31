@@ -1,4 +1,6 @@
 class ApplicationsController < ApplicationController
+  respond_to :html, :js
+
   def index
     @applications = Application.all
   end
@@ -19,7 +21,7 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
 
     if @application.save
-      redirect_to @application
+      render 'show'
     else
       render 'new'
     end
@@ -28,8 +30,8 @@ class ApplicationsController < ApplicationController
   def update
     @application = Application.find(params[:id])
 
-    if @application.update(article_params)
-      redirect_to @application
+    if @application.update(application_params)
+      render 'update'
     else
       render 'edit'
     end

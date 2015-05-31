@@ -10,21 +10,9 @@
   </div>
 </div>
 
-<%= form_for @application, :html => { :id => "application-form" } do |f| %>
+<div id="form-errors"></div>
 
-    <% if @application.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@application.errors.count, "error") %> prohibited
-          this application from being saved:
-        </h2>
-        <ul>
-          <% @application.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+<%= form_for @application, :html => { :id => "application-form" }, remote: true do |f| %>
 
     <div class="left-column application-column">
 
@@ -37,10 +25,242 @@
       <%= f.email_field :email, placeholder: 'Princess@atlantis.edu' %>
 
       <%= f.label :gender_identity, { class: 'full-line-label' } %><br>
-      <%= f.text_field :gender_identity, placeholder: 'Start typing...' %>
+      <%= f.text_field :gender_identity, {placeholder: 'Start typing...', class: 'awesomplete', list: 'genderList'} %>
+      <datalist id="genderList">
+      	<option>Female</option>
+      	<option>Male</option>
+      	<option>Non-binary</option>
+      	<option>Prefer not to answer</option>
+      </datalist>
 
-      <%= f.label :school, { class: 'full-line-label' } %><br>
-      <%= f.text_field :school, placeholder: 'Start typing...' %>
+      <%= f.label :school, { class: 'full-line-label awesomplete' } %><br>
+      <%= f.text_field :school, {placeholder: 'Start typing...', class: 'awesomplete', list: 'schoolList'} %>
+      <datalist id="schoolList">
+        <option>Adrian College</option>
+        <option>Albion College</option>
+        <option>Alma College</option>
+        <option>Baker CollegeDiscard</option>
+        <option>Calvin CollegeUnsure</option>
+        <option>Central Michigan University</option>
+        <option>Davenport University</option>
+        <option>Eastern Michigan University</option>
+        <option>Ferris State University</option>
+        <option>Grand Valley State University</option>
+        <option>Hillsdale College</option>
+        <option>Hope College</option>
+        <option>Kalamazoo College</option>
+        <option>Kettering University</option>
+        <option>Lake Superior State University</option>
+        <option>Lawrence Technological University</option>
+        <option>Madonna University</option>
+        <option>Michigan State University</option>
+        <option>Michigan Technological University</option>
+        <option>Northern Michigan University</option>
+        <option>Oakland University</option>
+        <option>Olivet College</option>
+        <option>Saginaw Valley State University</option>
+        <option>Spring Arbor University</option>
+        <option>University of Detroit Mercy</option>
+        <option>University of Michigan</option>
+        <option>University of Michigan-Flint</option>
+        <option>Wayne State University</option>
+        <option>Western Michigan University</option>
+        <option>Ashland University</option>
+        <option>Baldwin Wallace University</option>
+        <option>Bowling Green State University</option>
+        <option>Case Western Reserve University</option>
+        <option>Cleveland State University</option>
+        <option>God's Bible School and College</option>
+        <option>Kent State University</option>
+        <option>Malone University</option>
+        <option>Miami University</option>
+        <option>Ohio Dominican University</option>
+        <option>Ohio Northern University</option>
+        <option>Ohio University</option>
+        <option>Ohio University Southern</option>
+        <option>Ohio University-Chillicothe</option>
+        <option>Ohio Wesleyan University</option>
+        <option>Otterbein University</option>
+        <option>The Ohio State University</option>
+        <option>University of Akron</option>
+        <option>University of Cincinnati</option>
+        <option>University of Dayton</option>
+        <option>University of Toledo</option>
+        <option>Wright State University</option>
+        <option>Xavier University</option>
+        <option>Youngstown State University</option>
+        <option>Ball State University</option>
+        <option>Butler University</option>
+        <option>Hanover College</option>
+        <option>Indiana Institute of Technology</option>
+        <option>Indiana State University</option>
+        <option>Indiana University</option>
+        <option>Indiana University - Purdue University Fort Wayne</option>
+        <option>Indiana University - Purdue University Indianapolis</option>
+        <option>Indiana University Bloomington</option>
+        <option>Indiana University East</option>
+        <option>Indiana University Kokomo</option>
+        <option>Indiana University Northwest</option>
+        <option>Indiana University South Bend</option>
+        <option>Indiana University Southeast</option>
+        <option>Manchester College</option>
+        <option>Purdue University</option>
+        <option>Purdue University Calumet</option>
+        <option>Purdue University North Central</option>
+        <option>Rose-Hulman Institute of Technology</option>
+        <option>University of Evansville</option>
+        <option>University of Indianapolis</option>
+        <option>University of Notre Dame</option>
+        <option>DePaul University</option>
+        <option>Elmhurst College</option>
+        <option>Eureka College</option>
+        <option>Governors State University</option>
+        <option>Harrington College of Design</option>
+        <option>Illinois College</option>
+        <option>Illinois Institute of Technology</option>
+        <option>Illinois State University</option>
+        <option>Illinois Wesleyan University</option>
+        <option>Judson University</option>
+        <option>Knox College</option>
+        <option>Lewis University</option>
+        <option>Loyola University Chicago</option>
+        <option>McKendree University</option>
+        <option>Millikin University</option>
+        <option>North Central College</option>
+        <option>North Park University</option>
+        <option>Northeastern Illinois University</option>
+        <option>Northern Illinois University</option>
+        <option>Northwestern University</option>
+        <option>Olivet Nazarene University</option>
+        <option>Principia College</option>
+        <option>Quincy University</option>
+        <option>Robert Morris University</option>
+        <option>Rock Valley College</option>
+        <option>Rockford College</option>
+        <option>Roosevelt University</option>
+        <option>Saint Xavier University</option>
+        <option>School of the Art Institute of Chicago</option>
+        <option>Southern Illinois University Carbondale</option>
+        <option>Southern Illinois University Edwardsville</option>
+        <option>Trinity Christian College</option>
+        <option>Trinity International University</option>
+        <option>University of Chicago</option>
+        <option>University of Illinois at Chicago</option>
+        <option>University of Illinois at Springfield</option>
+        <option>University of Illinois at Urbana-Champaign</option>
+        <option>University of St. Francis</option>
+        <option>Western Illinois University</option>
+        <option>Wheaton College</option>
+        <option>Albright College</option>
+        <option>Allegheny College</option>
+        <option>Arcadia University</option>
+        <option>Bloomsburg University of Pennsylvania</option>
+        <option>Bucknell University</option>
+        <option>Cabrini College</option>
+        <option>California University of Pennsylvania</option>
+        <option>Carnegie Mellon University</option>
+        <option>Central Penn College</option>
+        <option>Chatham University</option>
+        <option>Chestnut Hill College</option>
+        <option>Cheyney University of Pennsylvania</option>
+        <option>Clarion University of Pennsylvania</option>
+        <option>DeSales University</option>
+        <option>Dickinson College</option>
+        <option>Drexel University</option>
+        <option>Duquesne University</option>
+        <option>East Stroudsburg University</option>
+        <option>Edinboro University of Pennsylvania</option>
+        <option>Elizabethtown College</option>
+        <option>Franklin and Marshall College</option>
+        <option>Gannon University</option>
+        <option>Geneva College</option>
+        <option>Gettysburg College</option>
+        <option>Grove City College</option>
+        <option>Gwynedd-Mercy University</option>
+        <option>Haverford College</option>
+        <option>Immaculata University</option>
+        <option>Indiana University of Pennsylvania</option>
+        <option>Juniata College</option>
+        <option>Keystone College</option>
+        <option>King's College</option>
+        <option>Kutztown University of Pennsylvania</option>
+        <option>La Roche College</option>
+        <option>La Salle University</option>
+        <option>Lafayette College</option>
+        <option>Lebanon Valley College</option>
+        <option>Lehigh University</option>
+        <option>Lincoln University</option>
+        <option>Lock Haven University</option>
+        <option>Mansfield University of Pennsylvania</option>
+        <option>Marywood University</option>
+        <option>Millersville University of Pennsylvania</option>
+        <option>Misericordia University</option>
+        <option>Moravian College</option>
+        <option>Mount Aloysius College</option>
+        <option>Muhlenberg College</option>
+        <option>Pennsylvania College of Technology</option>
+        <option>Pennsylvania Institute of Technology</option>
+        <option>Philadelphia University</option>
+        <option>Point Park University</option>
+        <option>Robert Morris University</option>
+        <option>Saint Francis University</option>
+        <option>Saint Joseph's University</option>
+        <option>Saint Vincent College</option>
+        <option>Seton Hill University</option>
+        <option>Shippensburg University of Pennsylvania</option>
+        <option>Slippery Rock University of Pennsylvania</option>
+        <option>Susquehanna University</option>
+        <option>Swarthmore College</option>
+        <option>Temple University</option>
+        <option>University of Pennsylvania</option>
+        <option>University of Pittsburgh</option>
+        <option>University of Scranton</option>
+        <option>Ursinus College</option>
+        <option>Villanova University</option>
+        <option>Waynesburg University</option>
+        <option>West Chester University of Pennsylvania</option>
+        <option>Westminster College</option>
+        <option>Bellarmine University</option>
+        <option>Berea College</option>
+        <option>Campbellsville University</option>
+        <option>Centre College</option>
+        <option>Eastern Kentucky University</option>
+        <option>Georgetown College</option>
+        <option>Kentucky State University</option>
+        <option>Kentucky Wesleyan College</option>
+        <option>Morehead State University</option>
+        <option>Murray State University</option>
+        <option>Northern Kentucky University</option>
+        <option>Sullivan University</option>
+        <option>Thomas More College</option>
+        <option>Transylvania University</option>
+        <option>Union College</option>
+        <option>University of Kentucky</option>
+        <option>University of Louisville</option>
+        <option>Western Kentucky University</option>
+        <option>Lawrence University</option>
+        <option>University of Wisconsin-Green Bay</option>
+        <option>University of Wisconsin-Parkside</option>
+        <option>University of Wisconsin-La Crosse</option>
+        <option>University of Wisconsin-Madison</option>
+        <option>University of Wisconsin-Stout</option>
+        <option>Concordia University Wisconsin</option>
+        <option>Marquette University</option>
+        <option>Medical College of Wisconsin</option>
+        <option>Milwaukee Institute of Art and Design</option>
+        <option>Milwaukee School of Engineering</option>
+        <option>Mount Mary College</option>
+        <option>University of Wisconsin-Milwaukee</option>
+        <option>Wisconsin Lutheran College</option>
+        <option>University of Wisconsin-Oshkosh</option>
+        <option>University of Wisconsin-Platteville</option>
+        <option>Lakeland College</option>
+        <option>Ripon College</option>
+        <option>University of Wisconsin-Superior</option>
+        <option>Maranatha Baptist University</option>
+        <option>Carroll University</option>
+        <option>University of Wisconsin-Whitewater</option>
+      </datalist>
 
       <%= f.check_box :this_is_my_first_hackathon %>
       <%= f.label :this_is_my_first_hackathon %><br>
@@ -86,7 +306,7 @@
       <label for="application_free_response">
         Have anything else you'd like to share?
         You can put links, awards, imgur links, or whatever else you'd like here.
-        If there is somthing not reflected in the other informationyou've given us, this is a great place to put it!
+        If there is something not reflected in the other information you've given us, this is a great place to put it!
       </label>
       <%= f.text_area :free_response %>
 
@@ -103,5 +323,12 @@
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 
 <script>
-  
+  $( document ).ready(function(e) {
+    if($("#application_i_will_not_be_traveling_from_my_school").attr('checked')){
+      $('#optional_travel_container').slideDown();
+    }
+    $("#application_i_will_not_be_traveling_from_my_school").change(function() {
+        $('#optional_travel_container').slideToggle();
+    })
+  });
 </script>

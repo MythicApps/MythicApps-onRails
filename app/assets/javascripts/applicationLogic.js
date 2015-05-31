@@ -4,7 +4,7 @@ $( document ).ready(function() {
 
 function attachEvents() {
   $('#apply').click(revealApplication);
-  $('#save-application').click(saveApplication);
+  //$('#save-application').click(saveApplication);
 }
 
 function revealApplication(){

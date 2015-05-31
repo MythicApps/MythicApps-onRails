@@ -195,7 +195,7 @@
   <h1 class="sponsor-header">Sponsors</h1>
   <h2 class="sponsor-subheader">
     Interested in sponsoring? Check out our
-    <a href="doc/sponsorship-prospectus.pdf">sponsorship opportunities</a>!
+    <a href="assets/sponsorship-prospectus.pdf">sponsorship opportunities</a>!
   </h2>
 
   <img class="sponsor-header-image" src="assets/sponsor-cave.svg"/>
@@ -242,6 +242,10 @@
 
 
 <script>
+  $( document ).ready(function(e) {
+    $('#application').hide();
+  });
+
   var compassDraw = new Vivus('compass-container', {
     type: 'async',
     duration:100,
