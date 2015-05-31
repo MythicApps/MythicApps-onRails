@@ -48,8 +48,10 @@
       <%= f.check_box :i_will_not_be_traveling_from_my_school %>
       <%= f.label :i_will_not_be_traveling_from_my_school %><br>
 
-      <%= f.label :i_will_be_traveling_from, { class: 'full-line-label' } %><br>
-      <%= f.text_field :i_will_be_traveling_from, placeholder: 'Atlantis, FL' %>
+      <div id="optional_travel_container">
+        <%= f.label :i_will_be_traveling_from, { class: 'full-line-label' } %><br>
+        <%= f.text_field :i_will_be_traveling_from, placeholder: 'Atlantis, FL' %>
+      </div>
 
       <%= f.label :resume, { class: 'full-line-label' } %><br>
       <%= f.hidden_field :resume %>
@@ -99,3 +101,7 @@
 </section>
 
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+
+<script>
+  
+</script>

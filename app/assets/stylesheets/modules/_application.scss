@@ -92,7 +92,12 @@ div.awesomplete {
   width: 100%;
 }
 
+#optional_travel_container {
+    display: none;
+}
+
 input[type="text"], input[type="email"] {
+  font-family: "Muli";
   background: none;
   border: none;
 
@@ -108,18 +113,22 @@ input[type="text"], input[type="email"] {
 
 ::-webkit-input-placeholder {
    color: $applicationPlaceholderText;
+   font-family: "Muli";
 }
 
 :-moz-placeholder { /* Firefox 18- */
    color: $applicationPlaceholderText;
+   font-family: "Muli";
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
    color: $applicationPlaceholderText;
+   font-family: "Muli";
 }
 
 :-ms-input-placeholder {
    color: $applicationPlaceholderText;
+   font-family: "Muli";
 }
 
 #application_free_response {
@@ -158,8 +167,8 @@ button.filepicker {
   font-size: 1.5em;
   font-family: muli;
 
-  background-image: url("http://upload.wikimedia.org/wikipedia/commons/3/35/Information_icon.svg"); /* Put your icon here */
-  background-position: right center;
+  background-image: url("/assets/resume-upload-icon.svg"); /* Put your icon here */
+  background-position: 10.3em center;
   background-size: 2em;
   background-repeat: no-repeat;
 
@@ -189,7 +198,7 @@ button.filepicker:hover {
   background-color: transparent;
   border: 0;
 
-  background-image: url("http://upload.wikimedia.org/wikipedia/commons/3/35/Information_icon.svg");
+  background-image: url("/assets/save-icon.svg");
   background-position: right center;
   background-size: 1.5em;
   background-repeat: no-repeat;
