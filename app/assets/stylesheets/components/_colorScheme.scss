@@ -9,6 +9,7 @@ $lightblue: #80dff6;
 $porcelin: #dcf0fb;
 $glass: rgba(220,240,251,.7);
 $softSteel: #5891A3;
+$blueBlack: #083039;
 
 //Yellows
 $lemonCreme: #ffdb6d;
@@ -33,7 +34,9 @@ $footerBackground: $deepBlue;
 $titleText: $porcelin;
 
 $applicationText: $lemonCreme;
-$applicationSectionHeader: black;
+$applicationSectionHeader: $blueBlack;
+$applicationsInputText: $lightblue;
+$applicationPlaceholderText: $softSteel;
 
 $aboutHeader: $lemonCreme;
 $aboutBody: $porcelin;

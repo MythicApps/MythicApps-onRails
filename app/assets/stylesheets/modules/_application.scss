@@ -1,8 +1,8 @@
 #application {
-  //display: none;
   background-color: $applicationBackground;
   color: $applicationText;
   font-family: "Muli";
+  min-height: 100vh;
 }
 
 #application-form {
@@ -28,6 +28,7 @@
 }
 
 .mobile-application-header {
+  padding-top: 1em;
   max-width: 1200px;
   margin-left: 2em;
   @media screen and (min-width: 550px){
@@ -38,7 +39,8 @@
 
 .mobile-application-logo {
   display: inline-block;
-  width: 15%;
+  width: 9%;
+  padding: 0 3%;
 }
 
 .mobile-application-header-text {
@@ -94,8 +96,30 @@ input[type="text"], input[type="email"] {
   background: none;
   border: none;
 
-  border-bottom: .2em solid $applicationText;
+  font-size: 1.5em;
+
+  color: $applicationsInputText;
+
+  padding-left: 1em;
+
+  border-bottom: .14em solid $applicationText;
   width: 100%;
+}
+
+::-webkit-input-placeholder {
+   color: $applicationPlaceholderText;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $applicationPlaceholderText;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $applicationPlaceholderText;
+}
+
+:-ms-input-placeholder {
+   color: $applicationPlaceholderText;
 }
 
 #application_free_response {
@@ -117,6 +141,65 @@ input[type="text"], input[type="email"] {
       width: 45%;
     }
   }
+}
 
+/* Change text: "Upload your resume" and "SAVE" on the two buttons */
+/* Don't forget to change the icon to the actual SVG you're using.  That Wikipedia one is ugly. */
 
+button.filepicker {
+  height: 3em;
+  line-height: 3em;
+  width: 12.5em;
+  padding-right: 2em;
+  border: 0;
+  border-bottom: 5px solid #66A8C2;
+  color: #ffdb6d;
+  background-color: #498DA7;
+  font-size: 1.5em;
+  font-family: muli;
+
+  background-image: url("http://upload.wikimedia.org/wikipedia/commons/3/35/Information_icon.svg"); /* Put your icon here */
+  background-position: right center;
+  background-size: 2em;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+
+  transition: 0.5s ease;
+}
+
+button.filepicker:hover {
+	color: #498DA7;
+	background-color: #ffdb6d;
+	border-bottom: 5px solid #ccae58;
+}
+
+.save-application {
+  float: right;
+  height: 2em;
+  line-height: 2em;
+  width: 6em;
+  padding-right: .75em;
+
+  font-family: "Muli";
+  font-size: 1.5em;
+  font-weight: bold;
+
+  color: #ffdb6d;
+  background-color: transparent;
+  border: 0;
+
+  background-image: url("http://upload.wikimedia.org/wikipedia/commons/3/35/Information_icon.svg");
+  background-position: right center;
+  background-size: 1.5em;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+}
+
+.field_with_errors {
+
+  input{
+      border-color: #c0392b;
+  }
 }

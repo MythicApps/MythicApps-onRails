@@ -61,100 +61,8 @@
   </nav>
 </div>
 
-<section id="application" class="scrollto">
-  <img class="crystals-top" src="assets/sponsor-cave.svg">
+<%= render 'applications/form' %>
 
-  <div class="mobile-application-header">
-    <img class="mobile-application-logo" src="assets/gem-logo.png">
-    <div class="mobile-application-header-text">
-      <h1>Application</h1>
-      <h2>Due August 10, 2015</h2>
-    </div>
-  </div>
-
-  <form id="application-form">
-    <div class="left-column application-column">
-
-      <h3 class="section-label">Personal</h3>
-
-      <label class="full-line-label" for="name">Name</label>
-      <input id="name" type="text" name="name"/>
-
-      <label class="full-line-label" for="email">Email</label>
-      <input id="email" type="email" name="email" required/>
-
-      <label class="full-line-label" for="genderId">Gender Identity</label>
-      <input class="awesomplete" id="genderId" type="text" name="genderId" list="genderList" required/>
-      <datalist id="genderList">
-      	<option>Female</option>
-      	<option>Male</option>
-      	<option>Non-binary</option>
-      	<option>Prefer not to answer</option>
-      </datalist>
-
-
-      <label class="full-line-label" for="schoolName">School Name</label>
-      <input class="awesomplete" id="schoolName" type="text" name="schoolName" list="schoolList" required/>
-      <datalist id="schoolList">
-        <option>Michigan State University</option>
-        <option>Saline High School</option>
-        <option>Clown Academy for Gifted Jokesters</option>
-      </datalist>
-
-      <div class="checkbox-container">
-        <input id="isFirstHackathon" type="checkbox" name="isFirstHackathon"/>
-        <label for="isFirstHackathon">This is my first hackathon.</label>
-      </div>
-
-      <div class="checkbox-container">
-        <input id="isNotTravelingFromSchool" type="checkbox" name="isNotTravelingFromSchool" />
-        <label for="isNotTravelingFromSchool">I will not be traveling from my school</label>
-      </div>
-
-      <label class="full-line-label" for="alternativeTravelPoint">I will be traveling from</label>
-      <input id="alternativeTravelPoint" type="text" name="alternativeTravelPoint" />
-
-      <label class="full-line-label" for="resume">Resume</label>
-      <input id="resume" type="filepicker-dragdrop" data-fp-apikey="AYwmlncw3SJyIxVRZuyx2z" data-fp-mimetypes="application/pdf" data-fp-container="modal" onchange="alert(event.fpfile.url)">
-    </div>
-    <div class="right-column application-column">
-
-      <h3 class="section-label">Additional Information (Optional)</h3>
-
-      <div class="optional-portfolios">
-        <div>
-          <label class="full-line-label" for="github">Github</label>
-          <input id="github" type="text" name="github"/>
-        </div>
-
-        <div>
-          <label class="full-line-label" for="dribbble">Dribbble</label>
-          <input id="dribbble" type="text" name="dribbble"/>
-        </div>
-      </div>
-
-      <label class="full-line-label" for="linkedin">Linkedin</label>
-      <input id="linkedin" type="text" name="linkedin"/>
-
-      <label class="full-line-label" for="personalSite">Personal Site</label>
-      <input id="personalSite" type="text" name="personalSite"/>
-
-      <h3 class="section-label free-response-section-label">Free Response (Optional)</h3>
-
-      <label for="freeResponse">
-        Have anything else you' like to share?
-        You can put links, awards, imgur links, or whatever else you'd like here.
-        If there is somthing not reflected in the other informationyou've given us, this is a great place to put it!
-      </label>
-      <textarea id="freeResponse" name="freeResponse"></textarea>
-
-      <button id="save-application">Save</button>
-
-    </div>
-  </form>
-
-  <img class="crystals-bottom" src="assets/sponsor-cave.svg">
-</section>
 
 <section id="about" class="scrollto">
   <div class="wrap column-container">
@@ -329,7 +237,6 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="//cdn.jsdelivr.net/vivus/0.2.1/vivus.min.js"></script>
 <script src="//cdn.jsdelivr.net/stickynavbar.js/1.1.2/jquery.stickyNavbar.min.js"></script>
-<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
 
 <script src="assets/jquery.waypoints.min.js"></script>
 

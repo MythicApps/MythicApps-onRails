@@ -3,7 +3,7 @@
 <%= image_tag("sponsor-cave.svg", class: "crystals-top") %>
 
 <div class="mobile-application-header">
-  <%= image_tag("gem-logo.png", class: "mobile-application-logo") %>
+  <%= image_tag("inscribed michigan logo.svg", class: "mobile-application-logo") %>
   <div class="mobile-application-header-text">
     <h1>Application</h1>
     <h2>Due August 10, 2015</h2>
@@ -30,17 +30,17 @@
 
       <h3 class="section-label">Personal</h3>
 
-      <%= f.label :name, { class: 'full-line-label' } %><br>
-      <%= f.text_field :name %>
+      <%= f.label :name, { class: 'full-line-label'} %><br>
+      <%= f.text_field :name, {placeholder: 'Kida Nedakh'}%>
 
       <%= f.label :email, { class: 'full-line-label' } %><br>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, placeholder: 'Princess@atlantis.edu' %>
 
       <%= f.label :gender_identity, { class: 'full-line-label' } %><br>
-      <%= f.text_field :gender_identity %>
+      <%= f.text_field :gender_identity, placeholder: 'Start typing...' %>
 
       <%= f.label :school, { class: 'full-line-label' } %><br>
-      <%= f.text_field :school %>
+      <%= f.text_field :school, placeholder: 'Start typing...' %>
 
       <%= f.check_box :this_is_my_first_hackathon %>
       <%= f.label :this_is_my_first_hackathon %><br>
@@ -49,11 +49,11 @@
       <%= f.label :i_will_not_be_traveling_from_my_school %><br>
 
       <%= f.label :i_will_be_traveling_from, { class: 'full-line-label' } %><br>
-      <%= f.text_field :i_will_be_traveling_from %>
+      <%= f.text_field :i_will_be_traveling_from, placeholder: 'Atlantis, FL' %>
 
       <%= f.label :resume, { class: 'full-line-label' } %><br>
       <%= f.hidden_field :resume %>
-      <input id="resume" type="filepicker-dragdrop" data-fp-apikey="AYwmlncw3SJyIxVRZuyx2z" data-fp-mimetypes="application/pdf" data-fp-container="modal" onchange="$('#application_resume').val(event.fpfile.url)">
+      <input id="resume" type="filepicker-dragdrop" data-fp-apikey="AYwmlncw3SJyIxVRZuyx2z" data-fp-mimetypes="application/pdf" data-fp-container="modal" data-fp-button-text="Upload your resume" data-fp-button-class="filepicker" onchange="$('#application_resume').val(event.fpfile.url)">
 
     </div>
 
@@ -64,20 +64,20 @@
       <div class="optional-portfolios">
         <div>
           <%= f.label :github, { class: 'full-line-label' } %><br>
-          <%= f.text_field :github %>
+          <%= f.text_field :github, placeholder: 'atlantis4ever' %>
         </div>
 
         <div>
           <%= f.label :dribbble, { class: 'full-line-label' } %><br>
-          <%= f.text_field :dribbble %>
+          <%= f.text_field :dribbble, placeholder: 'atlantis5ever' %>
         </div>
       </div>
 
       <%= f.label :linkedin, { class: 'full-line-label' } %><br>
-      <%= f.text_field :linkedin %>
+      <%= f.text_field :linkedin, placeholder: 'linkedin.com/in/KidaNedakh' %>
 
       <%= f.label :personal_site, { class: 'full-line-label' } %><br>
-      <%= f.text_field :personal_site %>
+      <%= f.text_field :personal_site, placeholder: 'kidatheprincess.com' %>
 
       <h3 class="section-label free-response-section-label">Free Response (Optional)</h3>
 
@@ -88,11 +88,13 @@
       </label>
       <%= f.text_area :free_response %>
 
-      <%= f.submit %>
+      <%= f.submit 'save', { class: 'save-application' }%>
 
     </div>
 
 <% end %>
+
+<%= image_tag("sponsor-cave.svg", class: "crystals-bottom") %>
 
 </section>
 
