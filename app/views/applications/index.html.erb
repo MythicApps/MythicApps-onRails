@@ -1,0 +1,15 @@
+<h1>Listing applications</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>School</th>
+  </tr>
+
+  <% @applications.each do |application| %>
+    <tr>
+      <td><%= application.name %></td>
+      <td><%= application.school %></td>
+    </tr>
+  <% end %>
+</table>

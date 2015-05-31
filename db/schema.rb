@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150530024055) do
+ActiveRecord::Schema.define(version: 20150530220754) do
+
+  create_table "applications", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "gender_identity"
+    t.string   "school"
+    t.boolean  "this_is_my_first_hackathon"
+    t.boolean  "i_will_not_be_traveling_from_my_school"
+    t.string   "i_will_be_traveling_from"
+    t.string   "resume"
+    t.string   "github"
+    t.string   "dribbble"
+    t.string   "linkedin"
+    t.string   "personal_site"
+    t.text     "free_response"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

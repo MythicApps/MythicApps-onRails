@@ -1,0 +1,99 @@
+<section id="application" class="scrollto">
+
+<%= image_tag("sponsor-cave.svg", class: "crystals-top") %>
+
+<div class="mobile-application-header">
+  <%= image_tag("gem-logo.png", class: "mobile-application-logo") %>
+  <div class="mobile-application-header-text">
+    <h1>Application</h1>
+    <h2>Due August 10, 2015</h2>
+  </div>
+</div>
+
+<%= form_for @application, :html => { :id => "application-form" } do |f| %>
+
+    <% if @application.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@application.errors.count, "error") %> prohibited
+          this application from being saved:
+        </h2>
+        <ul>
+          <% @application.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="left-column application-column">
+
+      <h3 class="section-label">Personal</h3>
+
+      <%= f.label :name, { class: 'full-line-label' } %><br>
+      <%= f.text_field :name %>
+
+      <%= f.label :email, { class: 'full-line-label' } %><br>
+      <%= f.email_field :email %>
+
+      <%= f.label :gender_identity, { class: 'full-line-label' } %><br>
+      <%= f.text_field :gender_identity %>
+
+      <%= f.label :school, { class: 'full-line-label' } %><br>
+      <%= f.text_field :school %>
+
+      <%= f.check_box :this_is_my_first_hackathon %>
+      <%= f.label :this_is_my_first_hackathon %><br>
+
+      <%= f.check_box :i_will_not_be_traveling_from_my_school %>
+      <%= f.label :i_will_not_be_traveling_from_my_school %><br>
+
+      <%= f.label :i_will_be_traveling_from, { class: 'full-line-label' } %><br>
+      <%= f.text_field :i_will_be_traveling_from %>
+
+      <%= f.label :resume, { class: 'full-line-label' } %><br>
+      <%= f.hidden_field :resume %>
+      <input id="resume" type="filepicker-dragdrop" data-fp-apikey="AYwmlncw3SJyIxVRZuyx2z" data-fp-mimetypes="application/pdf" data-fp-container="modal" onchange="$('#application_resume').val(event.fpfile.url)">
+
+    </div>
+
+    <div class="right-column application-column">
+
+      <h3 class="section-label">Additional Information (Optional)</h3>
+
+      <div class="optional-portfolios">
+        <div>
+          <%= f.label :github, { class: 'full-line-label' } %><br>
+          <%= f.text_field :github %>
+        </div>
+
+        <div>
+          <%= f.label :dribbble, { class: 'full-line-label' } %><br>
+          <%= f.text_field :dribbble %>
+        </div>
+      </div>
+
+      <%= f.label :linkedin, { class: 'full-line-label' } %><br>
+      <%= f.text_field :linkedin %>
+
+      <%= f.label :personal_site, { class: 'full-line-label' } %><br>
+      <%= f.text_field :personal_site %>
+
+      <h3 class="section-label free-response-section-label">Free Response (Optional)</h3>
+
+      <label for="application_free_response">
+        Have anything else you'd like to share?
+        You can put links, awards, imgur links, or whatever else you'd like here.
+        If there is somthing not reflected in the other informationyou've given us, this is a great place to put it!
+      </label>
+      <%= f.text_area :free_response %>
+
+      <%= f.submit %>
+
+    </div>
+
+<% end %>
+
+</section>
+
+<script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
