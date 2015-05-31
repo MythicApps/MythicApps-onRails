@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
   respond_to :html, :js
+  before_action :authenticate_user!, :only => [:index,:edit,:update]
 
   def index
     @applications = Application.all
