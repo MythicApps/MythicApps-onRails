@@ -7,7 +7,8 @@ function attachEvents() {
   //$('#save-application').click(saveApplication);
 }
 
-function revealApplication(){
+function revealApplication(e){
+  e.preventDefault()
   $('#application').slideDown();
   scrollTo("#application", 1000);
 }

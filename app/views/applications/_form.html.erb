@@ -262,11 +262,15 @@
         <option>University of Wisconsin-Whitewater</option>
       </datalist>
 
-      <%= f.check_box :this_is_my_first_hackathon %>
-      <%= f.label :this_is_my_first_hackathon %><br>
+      <div class="checkbox-container">
+        <%= f.check_box :i_will_not_be_traveling_from_my_school %>
+        <%= f.label :i_will_not_be_traveling_from_my_school %><br>
+      </div>
 
-      <%= f.check_box :i_will_not_be_traveling_from_my_school %>
-      <%= f.label :i_will_not_be_traveling_from_my_school %><br>
+      <div class="checkbox-container">
+        <%= f.check_box :this_is_my_first_hackathon %>
+        <%= f.label :this_is_my_first_hackathon %><br>
+      </div>
 
       <div id="optional_travel_container">
         <%= f.label :i_will_be_traveling_from, { class: 'full-line-label' } %><br>
