@@ -328,6 +328,8 @@
 
 <script>
   $( document ).ready(function(e) {
+
+    $("#application-form").keydown(function (e) { if(e.which == 13) e.preventDefault(); }); 
     if($("#application_i_will_not_be_traveling_from_my_school").attr('checked')){
       $('#optional_travel_container').slideDown();
     }
