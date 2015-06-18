@@ -25,4 +25,11 @@ picoModal({
 })
 .show();
 
+$('.modal-fa.fa-facebook-official').click(function(){
+   FB.ui({
+     method: 'share',
+     href: 'https://developers.facebook.com/docs/',
+   }, function(response){});
+});
+
 $('#application').slideUp(500);
