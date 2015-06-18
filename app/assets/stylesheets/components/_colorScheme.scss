@@ -6,10 +6,12 @@ $deepBlue: #0b6683;
 $paleBlue: #d8f0fb;
 $fadedDeep: rgba(27,103,132,.6);
 $lightblue: #80dff6;
-$porcelin: #dcf0fb;
 $glass: rgba(220,240,251,.7);
 $softSteel: #5891A3;
 $blueBlack: #083039;
+
+//Whites
+$porcelin: #dcf0fb;
 
 //Yellows
 $lemonCreme: #ffdb6d;
@@ -37,6 +39,10 @@ $applicationText: $lemonCreme;
 $applicationSectionHeader: $blueBlack;
 $applicationsInputText: $lightblue;
 $applicationPlaceholderText: $softSteel;
+
+$modal-header: $porcelin;
+$modal-subheader: $lemonCreme;
+$modal-fa: $porcelin;
 
 $aboutHeader: $lemonCreme;
 $aboutBody: $porcelin;

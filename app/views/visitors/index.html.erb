@@ -263,6 +263,31 @@
 </script>
 
 <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '906853499337609',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+   $('.modal-fa.fa-facebook-official').click(function(){
+      FB.ui({
+        method: 'share',
+        href: 'https://developers.facebook.com/docs/',
+      }, function(response){});
+   });
+</script>
+
+<script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
     function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
     e=o.createElement(i);r=o.getElementsByTagName(i)[0];

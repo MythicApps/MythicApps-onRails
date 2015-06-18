@@ -1,0 +1,46 @@
+.modal-header {
+  font-family: muli;
+  color: $modal-header;
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 2em;
+  padding-top: .5em;
+}
+
+.modal-subheader {
+  color: $modal-subheader;
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 1.5em;
+  padding: .5em 0;
+}
+
+.modal-fa {
+  font-size: 4em;
+  background: $modal-fa;
+  padding: .1em .15em;
+  margin: 0 .1em;
+  border-radius: 18%;
+  opacity: 1;
+  transition: opacity 1s;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
+.modal-fa.fa-facebook-official {
+  color: #3b5998;
+}
+
+.modal-fa.fa-twitter {
+  color: #55acee;
+}
+
+.modal-social-container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}

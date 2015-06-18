@@ -1,2 +1,28 @@
-alert('Your application has been received. We will email you in a couple of weeks with details on how to set up your account.');
+picoModal({
+    content: "<img src='assets/thanks-for-applying.png'/>"
+    +"<p class='modal-header'>We'll get in touch with you in the coming weeks about setting up an account!</p>"
+    +"<p class='modal-subheader'>In the meantime,<br> why don't you tell your friends?</p>"
+    +"<div class='modal-social-container'>"
+      +"<i class='modal-fa fa fa-facebook-official'></i>"
+      +"<a target='_blank' href='https://twitter.com/intent/tweet?via=MythicApps&text=I%20just%20applied%20to%20%40mythicapps!%20It%27s%20time%20for%20you%20to%20%23BelieveInTheMyth.%20Sign%20up%20at%20mythicapps.io'>"
+        +"<i class='modal-fa fa fa-twitter'></i>"
+      +"</a>"
+    +"</div>",
+    overlayStyles: function ( styles ) { styles.opacity = 0; },
+    modalStyles: function ( styles ) { styles.opacity = 0; styles.background = '#106883'; }
+})
+.afterShow(function(modal){
+    $(modal.overlayElem()).animate({opacity: .5});
+    $(modal.modalElem()).animate({opacity: 1});
+})
+.beforeClose(function(modal, event) {
+    event.preventDefault();
+    $(modal.overlayElem()).add(modal.modalElem())
+        .animate(
+            { opacity: 0 },
+            { complete: modal.forceClose }
+        );
+})
+.show();
+
 $('#application').slideUp(500);
