@@ -30,6 +30,12 @@ group :production do
 end
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-unicorn-nginx'
+  gem 'capistrano-safe-deploy-to'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
   gem 'quiet_assets'
