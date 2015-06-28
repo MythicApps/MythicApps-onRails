@@ -8,10 +8,6 @@ class MyMailer < Devise::Mailer
         {
           name: "confirm_account_link",
           content: "<a href='http://localhost:3000/users/confirmation?confirmation_token=#{token}' target='_blank' style='color: #ffdb6e;'>Confirmation Link</a>"
-        },
-        {
-          name: "test",
-          content: "hello world!"
         }
       ],
       :template => "application-confirmation-template"
