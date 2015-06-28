@@ -32,4 +32,13 @@
       transition: opacity 0.5s ease;
     }
   }
+
+  input {
+    max-width: 10em;
+    margin-bottom: 1em;
+  }
+
+  input[type="password"]{
+    font-size: 1.62em;
+  }
 }
