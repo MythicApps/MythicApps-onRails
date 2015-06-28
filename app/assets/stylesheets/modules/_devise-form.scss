@@ -1,0 +1,35 @@
+.devise-form {
+  background: $deviseFormBackground;
+  color: $deviseFormText;
+  min-height: 100vh;
+  font-family: "Muli";
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  legend {
+    font-size: 2em;
+    padding-bottom: 1em;
+  }
+
+  input[type='submit'] {
+    margin-top: 1em;
+    appearance: none;
+    color: $deviseFormBackground;
+    background: $deviseFormText;
+    border-radius: 0;
+    border: none;
+    font-family: "Muli";
+    font-size: 2em;
+    opacity: 1;
+
+    transition: opacity 0.5s ease;
+
+    &:hover {
+      opacity: .5;
+      transition: opacity 0.5s ease;
+    }
+  }
+}
