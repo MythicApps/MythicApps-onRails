@@ -1,0 +1,11 @@
+.user-controls {
+  position: absolute;
+  right: 0;
+  background: $userControlBackground;
+  margin: 0;
+  font-size: 1em;
+
+  a, a:visited {
+    color: $lemonCreme;
+  }
+}

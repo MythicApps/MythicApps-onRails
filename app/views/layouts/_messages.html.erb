@@ -1,5 +1,13 @@
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
-    <%= content_tag :div, msg, :class => "flash_#{name}" %>
+    <%= content_tag :div, msg, :class => "flash-fade flash_#{name}" %>
   <% end %>
 <% end %>
+
+<script>
+  $(function() {
+     $('.flash-fade').delay(500).fadeIn('normal', function() {
+        $(this).delay(2500).fadeOut();
+     });
+  });
+</script>

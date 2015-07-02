@@ -4,12 +4,18 @@
   <tr>
     <th>Name</th>
     <th>School</th>
+    <th>Resume</th>
+    <th>Linkedin</th>
+    <th>Personal Site</th>
   </tr>
 
   <% @applications.each do |application| %>
     <tr>
       <td><%= application.name %></td>
       <td><%= application.school %></td>
+      <td><%= application.resume %></td>
+      <td><%= application.linkedin %></td>
+      <td><%= application.personal_site %></td>
     </tr>
   <% end %>
 </table>
