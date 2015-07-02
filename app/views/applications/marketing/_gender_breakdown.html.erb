@@ -34,8 +34,8 @@ $(document).ready(function() {
 	var chart = c3.generate({
 		data: {
 			columns: [
-				['male', genderData.Male],
-				['female', genderData.Female],
+				['male', numMales],
+				['female', numFemales],
 				['other', total - numMales - numFemales]
 			],
 			type : 'pie',
