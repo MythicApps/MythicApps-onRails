@@ -17,6 +17,9 @@ gem 'pundit'
 
 gem 'unicorn'
 gem 'unicorn-rails'
+gem 'compass-rails'
+gem 'autoprefixer-rails'
+#gem 'flipclockjs-rails', '~> 0.5.5b.1'
 gem 'mandrill-api', require: 'mandrill'
 
 group :doc do

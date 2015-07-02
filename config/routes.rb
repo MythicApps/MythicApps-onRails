@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :confirmations => "confirmations" }
   resources :users
   resources :applications
+    
+    get 'visitors/countdown'
 
   as :user do
     patch '/user/confirmation' => 'confirmations#update', :via => :patch, :as => :update_user_confirmation
