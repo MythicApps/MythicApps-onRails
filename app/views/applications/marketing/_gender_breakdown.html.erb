@@ -1,0 +1,46 @@
+<div class="gender-breakdown marketing-module small flex col">
+	<div data-content="gender-data" class="json-data">
+		<%= @applications.group(:gender_identity).count(:gender_identity).to_json %>
+	</div>
+	<div class="gender-pie-graph flex col grow"></div>
+	<div class="info-bar flex row static x-align y-align">
+		Gender Breakdown
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	var genderData = JSON.parse($('.gender-breakdown [data-content="gender-data"').text());
+	var numMales = 0;
+	var numFemales = 0;
+	var total = 0;
+	
+	for (var key in genderData) {
+		if (genderData.hasOwnProperty(key)) {
+			var unformattedKey = key.toLowerCase().replace(/\s+/g, '');
+			var numPeopleOfGender = parseInt(genderData[key]);
+			
+			if (unformattedKey == 'male') {
+				numMales += numPeopleOfGender;
+			}
+			else if (unformattedKey == 'female') {
+				numFemales += numPeopleOfGender;
+			}
+			
+			total += numPeopleOfGender;
+		}
+	}
+	
+	var chart = c3.generate({
+		data: {
+			columns: [
+				['male', genderData.Male],
+				['female', genderData.Female],
+				['other', total - numMales - numFemales]
+			],
+			type : 'pie',
+		},
+		bindto: '.gender-breakdown .gender-pie-graph'
+	});
+});
+</script>
