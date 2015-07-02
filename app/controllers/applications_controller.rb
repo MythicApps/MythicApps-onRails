@@ -1,5 +1,6 @@
 class ApplicationsController < ApplicationController
   respond_to :html, :js
+  skip_before_action :verify_authenticity_token
   before_action :authenticate_user!, :only => [:index,:edit,:update]
 
   def index
@@ -22,6 +23,9 @@ class ApplicationsController < ApplicationController
     @application = Application.new(application_params)
 
     if @application.save
+      userAccount = User.new({:email => application_params[:email], :role => 'user'})
+      userAccount.save
+
       render 'show'
     else
       render 'new'

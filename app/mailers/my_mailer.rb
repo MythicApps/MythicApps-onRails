@@ -1,16 +1,16 @@
-class DeviseMandrillMailer < Devise::Mailer
+class MyMailer < Devise::Mailer
 
   def confirmation_instructions(record, token, opts={})
     options = {
-      :subject => "Password Reset",
+      :subject => "MythicApps Account Confirmation",
       :email => record.email,
       :global_merge_vars => [
         {
-          name: "password_reset_link",
-          content: "http://www.example.com/users/password/edit?reset_password_token=#{token}"
+          name: "confirm_account_link",
+          content: "<a href='http://localhost:3000/users/confirmation?confirmation_token=#{token}' target='_blank' style='color: #ffdb6e;'>Confirmation Link</a>"
         }
       ],
-      :template => "Forgot Password"
+      :template => "application-confirmation-template"
     }
     mandrill_send options
   end
