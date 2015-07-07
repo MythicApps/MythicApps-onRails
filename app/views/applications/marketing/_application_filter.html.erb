@@ -55,7 +55,7 @@ $(document).ready(function() {
 		var cells = $('td[data-type="' + searchType + '"]');
 		$.each(cells, function(index, value) {
 			var cellContent = $(value).text().toLowerCase();
-			if (!cellContent.includes(searchTerm)) {
+			if (!cellContent.includes(searchTerm.toLowerCase())) {
 				$(value).parent().hide();
 			}
 			else {
