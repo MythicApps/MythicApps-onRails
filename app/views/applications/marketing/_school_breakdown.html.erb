@@ -1,0 +1,59 @@
+<div class="school-breakdown marketing-module medium flex col">
+	<div class="json-data">
+		<div data-content="school-data">
+			<%= @applications.group(:school).limit(5).order("count_school desc").count(:school).to_json %>
+		</div>
+		<div data-content="school-total-data">
+			<%= @applications.count() %>
+		</div>
+	</div>
+	
+	<div class="school-bar-graph flex col grow"></div>
+	
+	<div class="info-bar flex row static x-align y-align">
+		School Breakdown
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	var schoolData = JSON.parse($('.school-breakdown [data-content="school-data"').text());
+	var totalApplicants = parseInt($('.school-breakdown [data-content="school-total-data"').text());
+	
+	var totalListedApplicants = 0;
+	var schools = [];
+	
+	// Add categories for top k schools, where k can be changed in the partial
+	for (var key in schoolData) {
+		if (schoolData.hasOwnProperty(key)) {
+			schools.push([key, parseInt(schoolData[key])]);
+			totalListedApplicants += parseInt(schoolData[key]);
+		}
+	}
+	
+	// Add the other schools category:
+	schools.push(['Other', totalApplicants - totalListedApplicants]);
+	
+	var chart = c3.generate({
+		data: {
+			columns: schools,
+			type : 'bar',
+		},
+		axis: {
+			rotated: true,
+			y: {
+				tick: {
+					count: 5,
+					format: function (x) { return x.toFixed(2); },
+					fit: false
+				}
+			},
+			x: {
+				type: 'category',
+				categories: ['']
+			}
+		},
+		bindto: '.school-breakdown .school-bar-graph'
+	});
+});
+</script>

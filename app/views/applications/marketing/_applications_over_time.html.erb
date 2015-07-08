@@ -1,0 +1,60 @@
+<div class="applications-over-time marketing-module medium flex col grow">
+	<div data-content="application-time-data" class="json-data">
+		<%= @applications.group(:created_at).distinct.count(:created_at).to_json %>
+	</div>
+	<div class="progress-chart"></div>
+	<div class="info-bar flex row grow x-align">
+		Applications Progress
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	var datesArray = ['2015-06-01', '2015-06-08', '2015-06-15', '2015-06-22', '2015-06-29', '2015-07-06', '2015-07-13', '2015-07-20', '2015-07-22', '2015-07-29', '2015-08-03', '2015-08-10', '2015-08-17', '2015-08-24'];
+	var dateBins = []; // holds the number of applicants up to the corresponding date value in datesArray.
+	for (var binIndex = 0; binIndex < datesArray.length; binIndex++) {
+		dateBins[binIndex] = 0;
+	}
+	var goal = 500;
+	var zeroTime = new Date(datesArray[0]).getTime();
+	var timeToGoal = new Date(datesArray[datesArray.length - 1]).getTime() - zeroTime;
+	var goalArray = []; // holds the number of applicants we should have at each corresponding date value in datesArray.
+	
+	for (var tick = 0; tick < datesArray.length; tick++) {
+		goalArray[tick] = parseInt((new Date(datesArray[tick]).getTime() - zeroTime) / timeToGoal * goal);
+	}
+	
+	var applicationData = JSON.parse($(".applications-over-time [data-content='application-time-data'").text());
+		
+	for (var key in applicationData) {
+		if (applicationData.hasOwnProperty(key)) {
+			var applicationDate = new Date(key.substring(0, 10)); // Chop off the date portion, since we don't need the entire datetime.
+			for (var index = 0; index < datesArray.length; index++) {
+				if (applicationDate < new Date(datesArray[index])) {
+					dateBins[index]++;
+				}
+			}
+		}
+	}
+	
+	var chart = c3.generate({
+		data: {
+			x: 'x',
+			columns: [
+				['x'].concat(datesArray),
+				['goal'].concat(goalArray),
+				['actual'].concat(dateBins)
+			]
+		},
+		axis: {
+			x: {
+				type: 'timeseries',
+				tick: {
+					format: '%m-%d'
+				}
+			}
+		},
+		bindto: '.applications-over-time .progress-chart'
+	});
+});
+</script>

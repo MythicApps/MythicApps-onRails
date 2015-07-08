@@ -1,0 +1,89 @@
+<%= javascript_include_tag "http://www.kryogenix.org/code/browser/sorttable/sorttable.js" %>
+
+<div class="applicant-data marketing-module flex col grow">
+	<div class="title-bar flex row static">
+		<div class="info-bar lg-margin flex col static x-align y-align">Application Filter</div>
+		<select class="application-filter-categories lg-margin">
+			<option value="name">Name</option>
+			<option value="gender">Gender</option>
+			<option value="school">School</option>
+			<option value="dribbble">Dribbble</option>
+			<option value="github">Github</option>
+		</select>
+		 <input class="filter-criteria lg-margin" type="text" name="filter-criteria">
+	</div>
+
+	<div class="table-wrapper std-padding flex row grow">
+		<table class="applicant-info-table sortable">
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>School</th>
+				<th>Dribbble</th>
+				<th>Github</th>
+				<th>Free Response</th>
+			</tr>
+			
+			<% @applications.each do |application| %>
+				<tr data-id="<%= application.id %>">
+					<td data-type="name"><%= application.name %></td>
+					<td data-type="gender"><%= application.gender_identity %></td>
+					<td data-type="school"><%= application.school %></td>
+					<td class="check" data-type="dribbble" data-show="<%= application.dribbble != "" %>"></td>
+					<td class="check" data-type="github" data-show="<%= application.github != "" %>"></td>
+					<td class="check" data-type="free_response" data-show="<%= application.free_response != "" %>"></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	// Set checkmarks:
+	var checkElement = '<img class="check" src="assets/check.png" />';
+	
+	$('.applicant-info-table td').each(function(index, element) {
+		if ($(element).attr('data-show') == 'true') {
+			$(element).append(checkElement);
+		}
+	});
+	
+	var searchStrings = function() {
+		var searchTerm = $('input[name=filter-criteria]').val();
+		var searchType = $('.application-filter-categories').val();
+		var cells = $('td[data-type="' + searchType + '"]');
+		$.each(cells, function(index, value) {
+			var cellContent = $(value).text().toLowerCase();
+			if (!cellContent.includes(searchTerm.toLowerCase())) {
+				$(value).parent().hide();
+			}
+			else {
+				$(value).parent().show();
+			}
+		});
+	};
+	
+	$('.applicant-data input[name=filter-criteria]').on('input', searchStrings);
+	
+	// For searching on booleans
+	$('.application-filter-categories').change(function() {
+		var searchType = $('.application-filter-categories').val();
+		if ((searchType == 'dribbble') || (searchType == 'github') || (searchType == 'free_response')) {
+			var cells = $('td[data-type="' + searchType + '"]');
+			$.each(cells, function(index, value) {
+				if ($(value).attr('data-show') != 'true') {
+					$(value).parent().hide();
+				}
+				else {
+					$(value).parent().show();
+				}
+			});
+		}
+		else {
+			searchStrings();
+		}
+		
+	});
+});
+</script>
