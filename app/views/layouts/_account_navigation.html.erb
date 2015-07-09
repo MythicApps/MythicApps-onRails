@@ -1,10 +1,13 @@
 <div class="user-controls">
+  <% classes = "button" %>
   <% unless @omit_home %>
     <%= link_to 'Home', root_path, :class => "button" %>
+  <% else %>
+    <% classes = "button button--homepage-nav" %>
   <% end %>
   <% if user_signed_in? %>
-    <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete', :class => "button" %>
+    <%= link_to 'Sign out', destroy_user_session_path, :method=>'delete', :class => classes %>
   <% else %>
-    <%= link_to 'Sign in', new_user_session_path, :class => "button" %>
+    <%= link_to 'Sign in', new_user_session_path, :class => classes %>
   <% end %>
 </div>
