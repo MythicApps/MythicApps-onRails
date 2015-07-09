@@ -19,6 +19,7 @@ gem 'unicorn'
 gem 'unicorn-rails'
 #gem 'flipclockjs-rails', '~> 0.5.5b.1'
 gem 'mandrill-api', require: 'mandrill'
+gem 'dotenv-rails'
 
 group :doc do
   gem 'sdoc', '~> 0.4.0'
@@ -37,6 +38,5 @@ group :development do
 end
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'sqlite3'
 end
