@@ -7,7 +7,7 @@ class MyMailer < Devise::Mailer
       :global_merge_vars => [
         {
           name: "confirm_account_link",
-          content: "<a href='http://localhost:3000/users/confirmation?confirmation_token=#{token}' target='_blank' style='color: #ffdb6e;'>Confirmation Link</a>"
+          content: "<a href='"+root_url+"users/confirmation?confirmation_token=#{token}' target='_blank' style='color: #ffdb6e;'>Confirmation Link</a>"
         }
       ],
       :template => "application-confirmation-template"

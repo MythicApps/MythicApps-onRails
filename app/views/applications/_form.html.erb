@@ -22,8 +22,11 @@
       <%= f.text_field :name, {placeholder: 'Kida Nedakh'}%>
 
       <%= f.label :email, { class: 'full-line-label' } %><br>
-      <%= f.email_field :email, placeholder: 'Princess@atlantis.edu' %>
-
+      <% unless omit_email_edit %>
+        <%= f.email_field :email, placeholder: 'Princess@atlantis.edu' %>
+      <% else %>
+        <%= f.email_field :email, placeholder: 'Princess@atlantis.edu', disabled: true %>
+      <% end %>
       <%= f.label :gender_identity, { class: 'full-line-label' } %><br>
       <%= f.text_field :gender_identity, {placeholder: 'Start typing...', class: 'awesomplete', list: 'genderList'} %>
       <datalist id="genderList">
@@ -329,7 +332,7 @@
 <script>
   $( document ).ready(function(e) {
 
-    $("#application-form").keydown(function (e) { if(e.which == 13) e.preventDefault(); }); 
+    $("#application-form").keydown(function (e) { if(e.which == 13) e.preventDefault(); });
     if($("#application_i_will_not_be_traveling_from_my_school").attr('checked')){
       $('#optional_travel_container').slideDown();
     }

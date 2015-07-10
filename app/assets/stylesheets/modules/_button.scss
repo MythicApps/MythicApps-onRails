@@ -53,3 +53,15 @@
     background: $applyButtonActive;
   }
 }
+
+.button--homepage-nav {
+  margin: .25em;
+  background: none;
+  color: $button !important;
+  border: .3em solid $button;
+  border-radius: .2em;
+
+  &:visited {
+    color: $button !important;
+  }
+}
