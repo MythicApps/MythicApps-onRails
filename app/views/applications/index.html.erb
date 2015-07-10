@@ -1,21 +1,25 @@
-<h1>Listing applications</h1>
+<div class="module-marketing-portal">
+	<%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js" %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>School</th>
-    <th>Resume</th>
-    <th>Linkedin</th>
-    <th>Personal Site</th>
-  </tr>
-
-  <% @applications.each do |application| %>
-    <tr>
-      <td><%= application.name %></td>
-      <td><%= application.school %></td>
-      <td><%= application.resume %></td>
-      <td><%= application.linkedin %></td>
-      <td><%= application.personal_site %></td>
-    </tr>
-  <% end %>
-</table>
+	<div class="flex row grow std-margin">
+		<div class="flex row static">
+			<%= render "applications/marketing/applicant_count" %>
+		</div>
+		<div class="flex row static">
+			<%= render "applications/marketing/school_breakdown" %>
+		</div>
+		<div class="flex row grow">
+			<%= render "applications/marketing/applications_over_time" %>
+		</div>
+	</div>
+	
+	<div class="flex row grow std-margin">
+		<div class="flex row static">
+			<%= render "applications/marketing/gender_breakdown" %>
+		</div>
+		<div class="flex row grow">
+			<%= render "applications/marketing/application_filter" %>
+		</div>
+	</div>
+	
+</div>

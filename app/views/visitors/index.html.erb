@@ -9,11 +9,15 @@
   </div>
   <div class="hero-wrap wrap">
     <div id="hero-content" class="center-content">
-      <img class="gem" src="assets/gem-logo.png" />
+      <%= image_tag "gem-logo.png", :class => 'gem' %>
       <h1 class="title">MythicApps</h1>
       <h2 class="subtitle">September 25-27th</h2>
       <h2 class="subtitle">Lansing, MI</h2>
-      <a id="apply" href="#" class="button">apply</a>
+      <% unless user_signed_in? and current_user.user? %>
+        <a id="apply" href="#" class="button button--apply">apply</a>
+      <% else %>
+      <a href="<%= "/applications/"+@application.id.to_s+"/edit"%>" class="button button--apply">Edit Application</a>
+      <% end %>
       <div class="contacts">
         <a href="mailto:sponsor@mythicapps.io" class="button button--contact">sponsor</a>
         <a href="mailto:hello@mythicapps.io" class="button button--contact">contact</a>
@@ -30,12 +34,12 @@
   </div>
 
   <div id="hero-background">
-    <img class="full-width align-top" src="assets/all-fishies.svg" />
-    <img class="full-width align-bottom arch" src="assets/arch.svg" />
-    <img class="full-width align-bottom" src="assets/whale-rock.svg" />
-    <img class="full-width align-bottom" src="assets/back-rock.svg" />
-    <img class="full-width align-bottom capitol" src="assets/capitol.svg" />
-    <img class="full-width align-bottom close-gap" src="assets/front-reef.svg" />
+    <%= image_tag "all-fishies.svg", :class => 'full-width align-top' %>
+    <%= image_tag "arch.svg", :class => 'full-width align-bottom arch' %>
+    <%= image_tag "whale-rock.svg", :class => 'full-width align-bottom' %>
+    <%= image_tag "back-rock.svg", :class => 'full-width align-bottom' %>
+    <%= image_tag "capitol.svg", :class => 'full-width align-bottom capitol' %>
+    <%= image_tag "front-reef.svg", :class => 'full-width align-bottom close-gap' %>
   </div>
 </section>
 
@@ -43,7 +47,7 @@
   <nav id="nav">
     <ul class="nav navbar-nav">
       <li class="center-content">
-        <img class="nav-decoration" src="assets/nav-seashell.svg">
+        <%= image_tag "nav-seashell.svg", :class => 'nav-decoration' %>
       </li>
       <li>
         <a href="#about" class="button">about</a>
@@ -55,13 +59,13 @@
         <a href="#sponsors" class="button">sponsors</a>
       </li>
       <li class="center-content">
-        <img class="nav-decoration" src="assets/nav-seashell.svg">
+        <%= image_tag "nav-seashell.svg", :class => 'nav-decoration' %>
       </li>
     </ul>
   </nav>
 </div>
 
-<%= render 'applications/form' %>
+<%= render 'applications/form', omit_email_edit: false %>
 
 
 <section id="about" class="scrollto">
@@ -89,28 +93,28 @@
     <h1 class="faq-header">FAQ</h1>
     <div class="faq-nav">
       <a id="general-button" href="#" class="button button--faq selected">
-        <img src="assets/faq-diamond.svg">
+        <%= image_tag "faq-diamond.svg" %>
         General
-        <img class="desktop" src="assets/faq-diamond.svg">
+        <%= image_tag "faq-diamond.svg", :class => 'desktop' %>
       </a>
       <a id="before-button" href="#" class="button button--faq">
-        <img src="assets/faq-diamond.svg">
+        <%= image_tag "faq-diamond.svg" %>
         Before
-        <img class="desktop" src="assets/faq-diamond.svg">
+        <%= image_tag "faq-diamond.svg", :class => 'desktop' %>
       </a>
       <a id="during-button" href="#" class="button button--faq">
-        <img src="assets/faq-diamond.svg">
+        <%= image_tag "faq-diamond.svg" %>
         During
-        <img class="desktop" src="assets/faq-diamond.svg">
+        <%= image_tag "faq-diamond.svg", :class => 'desktop' %>
       </a>
       <a id="after-button" href="#" class="button button--faq">
-        <img src="assets/faq-diamond.svg">
+        <%= image_tag "faq-diamond.svg" %>
         After
-        <img class="desktop" src="assets/faq-diamond.svg">
+        <%= image_tag "faq-diamond.svg", :class => 'desktop' %>
       </a>
     </div>
     <div class="question-container">
-      <img src="assets/faq-glass.svg" />
+      <%= image_tag "faq-glass.svg" %>
       <article id="general-questions" class="questions selected">
         <ul>
           <li>
@@ -135,7 +139,7 @@
         <ul>
           <li>
             <h2>How do I apply?</h2>
-            <p>The applications will open on June 1, 2015 and will stay open until August 25.  We will be accepting applicants on a rolling basis starting June 30.</p>
+            <p>The applications will open on June 1, 2015 and will stay open until August 25.  We will be accepting applicants on a rolling basis starting July 30.</p>
           </li>
           <li>
             <h2>What do I need to bring?</h2>
@@ -195,40 +199,40 @@
   <h1 class="sponsor-header">Sponsors</h1>
   <h2 class="sponsor-subheader">
     Interested in sponsoring? Check out our
-    <a href="assets/sponsorship-prospectus.pdf">sponsorship opportunities</a>!
+    <a href="<%= asset_path 'sponsorship-prospectus.pdf' %>">sponsorship opportunities</a>!
   </h2>
 
-  <img class="sponsor-header-image" src="assets/sponsor-cave.svg"/>
+  <%= image_tag "sponsor-cave.svg", :class => 'sponsor-header-image' %>
 
   <div class="wrap media-grid">
 
     <a href="https://www.filepicker.com/" class="media-item center-content start-up">
-      <img src="assets/logos/filepicker.png"/>
+      <%= image_tag "logos/filepicker.png" %>
     </a>
 
     <a href="//mitn.org/" class="media-item center-content start-up">
-      <img src="assets/logos/mitn.png"/>
+      <%= image_tag "logos/mitn.png" %>
     </a>
 
     <h1 class="sponsor-header full">Partners</h1>
 
     <a href="//www.neocenter.org/" class="media-item center-content partner">
-      <img src="assets/logos/neo-center.png"/>
+      <%= image_tag "logos/neo-center.png" %>
     </a>
     <a href="//www.purelansing.com/" class="media-item center-content partner">
-      <img src="assets/logos/leap.png"/>
+      <%= image_tag "logos/leap.png" %>
     </a>
     <a href="//www.lcc.edu/" class="media-item center-content partner">
-      <img src="assets/logos/LCC.svg"/>
+      <%= image_tag "logos/LCC.svg" %>
     </a>
     <a href="//www.spartaninnovations.org/" class="media-item center-content partner">
-      <img src="assets/logos/spartan-innovations.png"/>
+      <%= image_tag "logos/spartan-innovations.png" %>
     </a>
     <a href="//startuplansing.org/" class="media-item center-content partner">
-      <img src="assets/logos/startup-lansing.png"/>
+      <%= image_tag "logos/startup-lansing.png" %>
     </a>
     <a href="//www.capitaltechinitiative.org/" class="media-item center-content partner">
-      <img src="assets/logos/cti.png"/>
+      <%= image_tag "logos/cti.png" %>
     </a>
   </div>
 </section>
@@ -246,7 +250,7 @@
 <script src="//cdn.jsdelivr.net/vivus/0.2.1/vivus.min.js"></script>
 <script src="//cdn.jsdelivr.net/stickynavbar.js/1.1.2/jquery.stickyNavbar.min.js"></script>
 
-<script src="assets/jquery.waypoints.min.js"></script>
+<script src="<%= asset_path 'jquery.waypoints.min.js'%>"></script>
 
 
 <script>
@@ -257,7 +261,7 @@
   var compassDraw = new Vivus('compass-container', {
     type: 'async',
     duration:100,
-    file: 'assets/compass.svg',
+    file: '<%= asset_path 'compass.svg'%>',
     start: 'manual',
   });
 

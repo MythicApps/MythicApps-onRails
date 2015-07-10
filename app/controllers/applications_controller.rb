@@ -1,14 +1,16 @@
 class ApplicationsController < ApplicationController
   respond_to :html, :js
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!, :only => [:index,:edit,:update]
+  before_action :authenticate_user!, :only => [:index,:edit,:update,:show]
 
   def index
+    authorize User
     @applications = Application.all
   end
 
   def show
     @application = Application.find(params[:id])
+    authorize @application
   end
 
   def new
@@ -17,6 +19,7 @@ class ApplicationsController < ApplicationController
 
   def edit
     @application = Application.find(params[:id])
+    authorize @application
   end
 
   def create
