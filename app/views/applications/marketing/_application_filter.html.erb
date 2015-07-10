@@ -23,7 +23,7 @@
 				<th>Github</th>
 				<th>Free Response</th>
 			</tr>
-			
+
 			<% @applications.each do |application| %>
 				<tr data-id="<%= application.id %>">
 					<td data-type="name"><%= application.name %></td>
@@ -41,14 +41,14 @@
 <script>
 $(document).ready(function() {
 	// Set checkmarks:
-	var checkElement = '<img class="check" src="assets/check.png" />';
-	
+	var checkElement = '<img class="check" src="<%= asset_path 'check.png' %>" />';
+
 	$('.applicant-info-table td').each(function(index, element) {
 		if ($(element).attr('data-show') == 'true') {
 			$(element).append(checkElement);
 		}
 	});
-	
+
 	var searchStrings = function() {
 		var searchTerm = $('input[name=filter-criteria]').val();
 		var searchType = $('.application-filter-categories').val();
@@ -63,9 +63,9 @@ $(document).ready(function() {
 			}
 		});
 	};
-	
+
 	$('.applicant-data input[name=filter-criteria]').on('input', searchStrings);
-	
+
 	// For searching on booleans
 	$('.application-filter-categories').change(function() {
 		var searchType = $('.application-filter-categories').val();
@@ -83,7 +83,7 @@ $(document).ready(function() {
 		else {
 			searchStrings();
 		}
-		
+
 	});
 });
 </script>
