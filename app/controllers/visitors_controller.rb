@@ -2,7 +2,7 @@ class VisitorsController < ApplicationController
   def index
     @omit_home = true
     if user_signed_in?
-      @application = Application.find_by email: current_user.email
+      @application = Application.find_by email: current_user.email.downcase
       if  @application.blank?
         @application = Application.new
       end
