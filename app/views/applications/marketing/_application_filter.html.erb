@@ -5,6 +5,7 @@
 		<div class="info-bar lg-margin flex col static x-align y-align">Application Filter</div>
 		<select class="application-filter-categories lg-margin">
 			<option value="name">Name</option>
+			<option value="email">Email</option>
 			<option value="gender">Gender</option>
 			<option value="school">School</option>
 			<option value="dribbble">Dribbble</option>
@@ -17,18 +18,22 @@
 		<table class="applicant-info-table sortable">
 			<tr>
 				<th>Name</th>
+				<th>Email</th>
 				<th>Gender</th>
 				<th>School</th>
+				<th>Application Date</th>
 				<th>Dribbble</th>
 				<th>Github</th>
 				<th>Free Response</th>
 			</tr>
 
-			<% @applications.each do |application| %>
+			<% @applications.order(created_at: :desc).each do |application| %>
 				<tr data-id="<%= application.id %>">
 					<td data-type="name"><%= application.name %></td>
+					<td data-type="email"><%= application.email %></td>
 					<td data-type="gender"><%= application.gender_identity %></td>
 					<td data-type="school"><%= application.school %></td>
+					<td data-type="application-date"><%= application.created_at %></td>
 					<td class="check" data-type="dribbble" data-show="<%= application.dribbble != "" %>"></td>
 					<td class="check" data-type="github" data-show="<%= application.github != "" %>"></td>
 					<td class="check" data-type="free_response" data-show="<%= application.free_response != "" %>"></td>
