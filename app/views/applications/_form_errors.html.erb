@@ -1,8 +1,7 @@
 <% if @application.errors.any? %>
   <div id="error_explanation">
     <h2>
-      <%= pluralize(@application.errors.count, "error") %> prohibited
-      this application from being saved:
+      Please fix <%= pluralize(@application.errors.count, "error") %>:
     </h2>
     <ul>
       <% @application.errors.full_messages.each do |msg| %>
