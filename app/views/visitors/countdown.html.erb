@@ -1,6 +1,6 @@
 <h1>Countdown</h1>
 
-<div id="countdown_clock"></div>
+<h2 data-bind="text: daysRemaining"></h2>
 
 <script>
   $(document).on('ready on load', function() {
@@ -9,14 +9,15 @@
   //    var now   = new Date();
   //    var diff  = date.getTime()/1000 - now.getTime()/1000;
 
-      var clock = $('#countdown_clock').FlipClock({
-          clockFace: 'DailyCounter',
-  		countdown: true,
-      });
-      clock.setTime(new Date(2015,9,25).getTime()/10000 - new Date().getTime()/10000);
-      clock.setCountdown(true);
-      clock.start(function() {
-      });
+      var CalculateDays = function(event, today){
+          this.daysRemaining = ko.computed(function(){
+              return Math.floor((event-today)/(1000*60*60*24));
+          });
+      };
+      //window.setInterval(function(){
+          ko.applyBindings(new CalculateDays(new Date(2015, 9, 25, 12, 0, 0), new Date($.now())));
+      //}, 1000);
+      
   });
 
 </script>

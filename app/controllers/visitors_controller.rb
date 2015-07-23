@@ -12,7 +12,6 @@ class VisitorsController < ApplicationController
   end
 
   def countdown
-
   end
 
 end
