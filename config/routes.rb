@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   root to: 'visitors#index'
   devise_for :users, :controllers => { :confirmations => "confirmations" }
   resources :users
+  get '/applications/review', to: 'applications#review'
   resources :applications
-    
+   
     get 'visitors/countdown'
 
   as :user do

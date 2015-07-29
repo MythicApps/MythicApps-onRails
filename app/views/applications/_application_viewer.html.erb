@@ -1,0 +1,113 @@
+<div class="application-viewer">
+	<% if @application != nil %>
+		<table class="application-data-table">
+			<tr>
+				<th>Name:</th>
+				<td><%= @application.name %></td>
+			</tr>
+			<tr>
+				<th>Email:</th>
+				<td><%= @application.email %></td>
+			</tr>
+			<tr>
+				<th>Gender:</th>
+				<td><%= @application.gender_identity %></td>
+			</tr>
+			<tr>
+				<th>School:</th>
+				<td><%= @application.school %></td>
+			</tr>
+			<tr>
+				<th>First Hackathon:</th>
+				<td><%= @application.this_is_my_first_hackathon %></td>
+			</tr>
+			<tr>
+				<th>Not travelling from school:</th>
+				<td><%= @application.i_will_not_be_traveling_from_my_school %></td>
+			</tr>
+			<tr>
+				<th>Travelling from:</th>
+				<td><%= @application.i_will_be_traveling_from %></td>
+			</tr>
+			<tr>
+				<th>Resume:</th>
+				<td><%= @application.resume %></td>
+			</tr>
+			<tr>
+				<th>Github:</th>
+				<td><%= @application.github %></td>
+			</tr>
+			<tr>
+				<th>Dribbble:</th>
+				<td><%= @application.dribbble %></td>
+			</tr>
+			<tr>
+				<th>LinkedIn:</th>
+				<td><%= @application.linkedin %></td>
+			</tr>
+			<tr>
+				<th>Personal Site:</th>
+				<td><%= @application.personal_site %></td>
+			</tr>
+			<tr>
+				<th>Free response:</th>
+				<td><%= @application.free_response %></td>
+			</tr>
+			<tr>
+				<th>Created at:</th>
+				<td><%= @application.created_at %></td>
+			</tr>
+		</table>
+	
+		<div class="status-edit">
+			<select class="status-select">
+				<option
+					<% if @application.status == 0 %>
+						selected
+					<% end %>
+						value="0">Unreviewed</option>
+				<option 
+					<% if @application.status == 1 %>
+						selected
+					<% end %>
+						value="1">Accepted</option>
+				<option
+					<% if @application.status == 2 %>
+						selected
+					<% end %>
+						value="2">Waitlisted</option>
+				<option 
+					<% if @application.status == 3 %>
+						selected
+					<% end %>
+					value="3">Denied</option>
+			</select>
+			<button onclick="saveApplicationStatus()" type="button">Save Review Status</button>
+			<button onclick="reviewNext()" type="button">Review Next</button>
+		</div>
+		
+		<%= form_for @application, :html => { :id => "application-form", :class => "invisible" }, remote: true do |f| %>
+			<%= f.text_field :status %>
+		<% end %>
+	<% else %>
+		<div>All applications reviewed.  Nice!</div>
+	<% end %>
+</div>
+
+<script>
+$(document).ready(function() {
+	$("#application-form.invisible").bind('ajax:complete', function() {
+		  picoModal("Save successful!").show();
+	});
+});
+
+function saveApplicationStatus() {
+	var selectedStatus = $('.status-select').val();
+	$($('#application-form.invisible').children('input').get(0)).val(selectedStatus);
+	$('#application-form.invisible').submit();
+}
+
+function reviewNext() {
+	window.location.replace('/applications/review');
+}
+</script>
