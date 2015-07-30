@@ -1,7 +1,7 @@
 class ApplicationsController < ApplicationController
   respond_to :html, :js
   skip_before_action :verify_authenticity_token
-  before_action :authenticate_user!, :only => [:index,:edit,:update,:show]
+  before_action :authenticate_user!, :only => [:index,:edit,:update,:show,:review]
 
   def index
     authorize User
@@ -9,16 +9,24 @@ class ApplicationsController < ApplicationController
   end
 
   def show
-    @application = Application.find(params[:id])
+	@application = Application.find(params[:app_id])
     authorize @application
   end
 
   def new
     @application = Application.new
   end
+  
+  def review
+	@application = Application.find_by status: 0
+	if @application != nil
+	  authorize @application
+	end
+    
+  end
 
   def edit
-    @application = Application.find(params[:id])
+	@application = Application.find(params[:id])
     authorize @application
   end
 
@@ -47,7 +55,7 @@ class ApplicationsController < ApplicationController
 
   private
     def application_params
-      params.require(:application).permit(:name, :email, :gender_identity, :school, :this_is_my_first_hackathon, :i_will_not_be_traveling_from_my_school, :i_will_be_traveling_from, :resume, :github, :dribbble, :linkedin, :personal_site, :free_response)
+      params.require(:application).permit(:name, :email, :gender_identity, :school, :this_is_my_first_hackathon, :i_will_not_be_traveling_from_my_school, :i_will_be_traveling_from, :resume, :github, :dribbble, :linkedin, :personal_site, :free_response, :status)
     end
 end
 

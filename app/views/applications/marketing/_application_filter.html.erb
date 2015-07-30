@@ -8,6 +8,7 @@
 			<option value="email">Email</option>
 			<option value="gender">Gender</option>
 			<option value="school">School</option>
+			<option value="status">Review Status</option>
 			<option value="dribbble">Dribbble</option>
 			<option value="github">Github</option>
 		</select>
@@ -22,6 +23,7 @@
 				<th>Gender</th>
 				<th>School</th>
 				<th>Application Date</th>
+				<th>Status</th>
 				<th>Dribbble</th>
 				<th>Github</th>
 				<th>Free Response</th>
@@ -34,6 +36,7 @@
 					<td data-type="gender"><%= application.gender_identity %></td>
 					<td data-type="school"><%= application.school %></td>
 					<td data-type="application-date"><%= application.created_at %></td>
+					<td class="clickable" onclick="reviewApplicantRedirect(event)" data-type="status"><%= application.status %></td>
 					<td class="check" data-type="dribbble" data-show="<%= application.dribbble != "" %>"></td>
 					<td class="check" data-type="github" data-show="<%= application.github != "" %>"></td>
 					<td class="check" data-type="free_response" data-show="<%= application.free_response != "" %>"></td>
@@ -44,6 +47,13 @@
 </div>
 
 <script>
+var statusCodes = ['Unreviewed', 'Accepted', 'Waitlisted', 'Denied'];
+
+function reviewApplicantRedirect(event) {
+	var id = $(event.target).parent().attr('data-id');
+	window.location.replace('/applications/show?app_id=' + id);
+}
+
 $(document).ready(function() {
 	// Set checkmarks:
 	var checkElement = '<img class="check" src="<%= asset_path 'check.png' %>" />';
@@ -53,7 +63,13 @@ $(document).ready(function() {
 			$(element).append(checkElement);
 		}
 	});
-
+	
+	// Set status to correct strings:
+	$('td[data-type="status"]').each(function(index, element) {
+		var statusNum = parseInt($(element).text());
+		$(element).text(statusCodes[statusNum]);
+	});
+	
 	var searchStrings = function() {
 		var searchTerm = $('input[name=filter-criteria]').val();
 		var searchType = $('.application-filter-categories').val();
