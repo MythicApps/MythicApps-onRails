@@ -60,6 +60,7 @@
 			.total-applications {
 				font-size: 5em;
 			}
+			cursor: pointer;
 		}
 		
 		&.applicant-data {
@@ -93,6 +94,11 @@
 					height: 1em;
 				}
 				
+				.clickable {
+					cursor: pointer;
+					text-decoration: underline;
+				}
+				
 				tr {
 					border-top: 1px solid $gray;
 				}
@@ -123,5 +129,20 @@
 		.json-data {
 			display: none;
 		}
+	}
+}
+
+.application-viewer {
+	font-family: muli;
+	background-color: white;
+	padding: 1em;
+	width: 100%;
+	
+	#application-form.invisible {
+		display: none;
+	}
+	
+	.application-data-table th {
+		padding: 5px 10px;
 	}
 }

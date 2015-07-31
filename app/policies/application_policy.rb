@@ -17,5 +17,9 @@ class ApplicationPolicy
   def edit?
     @current_user.admin? or @current_user.email == @application.email
   end
+  
+  def review?
+    @current_user.admin?
+  end
 
 end

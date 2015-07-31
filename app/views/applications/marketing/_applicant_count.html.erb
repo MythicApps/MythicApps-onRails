@@ -1,8 +1,14 @@
-<div class="applicant-count marketing-module small flex col">
+<div class="applicant-count marketing-module small flex col" onclick="reviewNext()">
 	<div class="total-applications flex row grow x-align y-align">
-		<%= @applications.count%>
+		<%= @applications.where.not(status: 0).count %> / <%= @applications.count%>
 	</div>
 	<div class="info-bar flex row static x-align">
-		Total Applications
+		Reviewed Applications
 	</div>
 </div>
+
+<script>
+function reviewNext() {
+	window.location.replace('/applications/review');
+}
+</script>
