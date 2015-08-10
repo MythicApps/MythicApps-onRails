@@ -7,7 +7,9 @@
 			</tr>
 			<tr>
 				<th>Email:</th>
-				<td><%= @application.email %></td>
+				<td>
+					<a href="mailto:<%= @application.email %>"><%= @application.email %></a>
+				</td>
 			</tr>
 			<tr>
 				<th>Gender:</th>
@@ -22,32 +24,65 @@
 				<td><%= @application.this_is_my_first_hackathon %></td>
 			</tr>
 			<tr>
-				<th>Not travelling from school:</th>
-				<td><%= @application.i_will_not_be_traveling_from_my_school %></td>
-			</tr>
-			<tr>
-				<th>Travelling from:</th>
-				<td><%= @application.i_will_be_traveling_from %></td>
-			</tr>
+				<th>Traveling from:</th>
+				<td>
+					<% if @application.i_will_not_be_traveling_from_my_school %>
+						<%= @application.i_will_be_traveling_from %> (not school)
+					<% else %>
+						<%= @application.school %> (school)
+					<% end %>
+				</td>
 			<tr>
 				<th>Resume:</th>
-				<td><%= @application.resume %></td>
+				<td>
+					<% if @application.resume.length != 0 %>
+						<a href="<%= @application.resume %>"><%= @application.resume %></a>
+					<% else %>
+						No resume
+					<% end %>
+				</td>
+				
 			</tr>
 			<tr>
 				<th>Github:</th>
-				<td><%= @application.github %></td>
+				<td>
+					<% if @application.github.length != 0 %>
+						<a href="http://www.github.com/<%= @application.github %>"><%= @application.github %></a>
+					<% else %>
+						None
+					<% end %>
+				</td>
 			</tr>
 			<tr>
 				<th>Dribbble:</th>
-				<td><%= @application.dribbble %></td>
+				<td>
+					<% if @application.dribbble.length != 0 %>
+						<a href="http://www.dribbble.com/<%= @application.dribbble %>"><%= @application.dribbble %></a>
+					<% else %>
+						None
+					<% end %>
+				</td>
 			</tr>
 			<tr>
 				<th>LinkedIn:</th>
-				<td><%= @application.linkedin %></td>
+				<td>
+					<% if @application.linkedin.length != 0 %>
+						<a href="<%= @application.linkedin %>"><%= @application.linkedin %></a>
+					<% else %>
+						None
+					<% end %>
+				</td>
 			</tr>
 			<tr>
 				<th>Personal Site:</th>
-				<td><%= @application.personal_site %></td>
+				
+				<td>
+					<% if @application.personal_site.length != 0 %>
+						<a href="<%= @application.personal_site %>"><%= @application.personal_site %></a>
+					<% else %>
+						None
+					<% end %>
+				</td>
 			</tr>
 			<tr>
 				<th>Free response:</th>
@@ -59,7 +94,7 @@
 			</tr>
 		</table>
 	
-		<div class="status-edit">
+		<div class="status-edit" onchange="saveApplicationStatus()">
 			<select class="status-select">
 				<option
 					<% if @application.status == 0 %>
@@ -82,8 +117,6 @@
 					<% end %>
 					value="3">Denied</option>
 			</select>
-			<button onclick="saveApplicationStatus()" type="button">Save Review Status</button>
-			<button onclick="reviewNext()" type="button">Review Next</button>
 		</div>
 		
 		<%= form_for @application, :html => { :id => "application-form", :class => "invisible" }, remote: true do |f| %>
@@ -91,13 +124,17 @@
 		<% end %>
 	<% else %>
 		<div>All applications reviewed.  Nice!</div>
+		<div><a href='/applications'>Return to dashboard</a></div>
 	<% end %>
 </div>
 
 <script>
 $(document).ready(function() {
 	$("#application-form.invisible").bind('ajax:complete', function() {
-		  picoModal("Save successful!").show();
+		var saveSuccessString = "<div>Save successful!</div>";
+		var reviewNextString = "<div><a href='/applications/review'>Review next</a></div>";
+		var returnToMarketingDashboard = "<div><a href='/applications'>Return to dashboard</a></div>";
+		picoModal(saveSuccessString + reviewNextString + returnToMarketingDashboard).show();
 	});
 });
 
