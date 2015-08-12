@@ -1,0 +1,44 @@
+<section id="hero">
+  <div class="social-media-desktop">
+    <a href="https://twitter.com/MythicApps">
+      <i class="fa fa-twitter"></i>
+    </a>
+    <a href="https://www.facebook.com/MythicApps">
+      <i class="fa fa-facebook"></i>
+    </a>
+  </div>
+  <div class="hero-wrap wrap">
+    <div id="hero-content" class="center-content">
+      <%= image_tag "gem-logo.png", :class => 'gem' %>
+      <h1 class="title">MythicApps</h1>
+      <h2 class="subtitle">September 25-27th</h2>
+      <h2 class="subtitle">Lansing, MI</h2>
+      <% unless user_signed_in? and current_user.user? %>
+        <a id="apply" href="#" class="button button--apply">apply</a>
+      <% else %>
+      <a href="<%= "/applications/"+@application.id.to_s+"/edit"%>" class="button button--apply">Edit Application</a>
+      <% end %>
+      <div class="contacts">
+        <a href="mailto:sponsor@mythicapps.io" class="button button--contact">sponsor</a>
+        <a href="mailto:hello@mythicapps.io" class="button button--contact">contact</a>
+      </div>
+    </div>
+    <div class="social-media-mobile">
+      <a href="https://twitter.com/MythicApps">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="https://www.facebook.com/MythicApps">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </div>
+  </div>
+
+  <div id="hero-background">
+    <%= image_tag "all-fishies.svg", :class => 'full-width align-top' %>
+    <%= image_tag "arch.svg", :class => 'full-width align-bottom arch' %>
+    <%= image_tag "whale-rock.svg", :class => 'full-width align-bottom' %>
+    <%= image_tag "back-rock.svg", :class => 'full-width align-bottom' %>
+    <%= image_tag "capitol.svg", :class => 'full-width align-bottom capitol' %>
+    <%= image_tag "front-reef.svg", :class => 'full-width align-bottom close-gap' %>
+  </div>
+</section>
