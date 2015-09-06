@@ -11,13 +11,13 @@
     <div id="hero-content" class="center-content">
       <%= image_tag "gem-logo.png", :class => 'gem' %>
       <h1 class="title">MythicApps</h1>
-      <h2 class="subtitle">September 25-27th</h2>
+      <!-- <h2 class="subtitle">Postponed</h2> -->
       <h2 class="subtitle">Lansing, MI</h2>
-      <% unless user_signed_in? and current_user.user? %>
+      <!-- <% unless user_signed_in? and current_user.user? %>
         <a id="apply" href="#" class="button button--apply">apply</a>
       <% else %>
       <a href="<%= "/applications/"+@application.id.to_s+"/edit"%>" class="button button--apply">Edit Application</a>
-      <% end %>
+      <% end %> -->
       <div class="contacts">
         <a href="mailto:sponsor@mythicapps.io" class="button button--contact">sponsor</a>
         <a href="mailto:hello@mythicapps.io" class="button button--contact">contact</a>
